@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 :root {
-  /* Light theme - White base */
+  /* Base CSS custom properties */
+  --radius: 0.5rem;
+}
+
+/* Creating explicit light theme class with its own CSS variables */
+.light {
   --background: 0 0% 100%;
-  --foreground: 0 0% 3.9%;
+  --foreground: 15 23 42; /* slate-900 for better contrast */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 3.9%;
+  --card-foreground: 15 23 42;
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.9%;
+  --popover-foreground: 15 23 42;
   --primary: 0 0% 9%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 96.1%;
@@ -23,11 +28,10 @@
   --border: 0 0% 89.8%;
   --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
-  --radius: 0.5rem;
 }
 
+/* Dark theme class with its own CSS variables */
 .dark {
-  /* Dark theme */
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
   --card: 0 0% 3.9%;
@@ -50,11 +54,14 @@
 }
 
 @layer base {
-  /* Removed problematic border-border class and duplicate tailwind import */
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Separate grid patterns for light and dark themes */
+  .light body {
     background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
     background-size: 20px 20px;
   }
@@ -63,42 +70,69 @@
     background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
     background-size: 20px 20px;
   }
-
-  /* Improved light theme card styling */
-  .light .glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  }
-
-  .light .glass:hover {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  }
 }
 
 @layer utilities {
-  .bg-background {
-    background-color: hsl(var(--background));
+  /* Theme-specific text utilities */
+  .text-light-primary {
+    color: rgb(15 23 42); /* slate-900 */
   }
-  .text-foreground {
-    color: hsl(var(--foreground));
+
+  .text-light-secondary {
+    color: rgb(51 65 85); /* slate-600 */
   }
-  .bg-card {
-    background-color: hsl(var(--card));
+
+  .text-light-muted {
+    color: rgb(100 116 139); /* slate-500 */
   }
-  .text-card-foreground {
-    color: hsl(var(--card-foreground));
+
+  .text-dark-primary {
+    color: rgb(248 250 252); /* slate-50 */
   }
-  .bg-primary {
-    background-color: hsl(var(--primary));
+
+  .text-dark-secondary {
+    color: rgb(203 213 225); /* slate-300 */
   }
-  .text-primary-foreground {
-    color: hsl(var(--primary-foreground));
+
+  .text-dark-muted {
+    color: rgb(148 163 184); /* slate-400 */
   }
-  /* Add more if needed for secondary, muted, accent, etc. */
+
+  /* Theme-specific background utilities */
+  .bg-light-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .bg-dark-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Theme-specific glassmorphism effects */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-light:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-dark:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 /* Grid animation */
@@ -145,29 +179,6 @@
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Enhanced glassmorphism with theme support */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.dark .glass:hover {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -211,4 +222,19 @@ html {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Enhanced king aura animation for core team members */
+@keyframes king-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(245, 158, 11, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.2);
+  }
+}
+
+.king-aura:hover {
+  animation: king-glow 2s ease-in-out infinite;
 }

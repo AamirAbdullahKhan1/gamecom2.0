@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft, Users, Trophy, Code, Palette, Camera, Megaphone, Gamepad2 } from "lucide-react"
+import Navigation from "../components/Navigation"
 
 const domains = [
   {
@@ -219,6 +220,8 @@ export default function DomainsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
+
       {/* Background grid pattern */}
       <div className="fixed inset-0 opacity-5 dark:opacity-10">
         <div
@@ -234,8 +237,7 @@ export default function DomainsPage() {
       </div>
 
       <div className="relative z-10">
-        {/* Header */}
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-6 py-8 pt-24">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"

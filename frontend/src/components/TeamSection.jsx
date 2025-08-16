@@ -140,15 +140,15 @@ export default function TeamSection({ scrollY }) {
           style={{ animationDelay: "1s" }}
         ></div>
         {/* Theme-aware floating gaming elements */}
-        <div className="absolute top-1/4 right-1/4 text-4xl opacity-20 animate-float text-foreground/30">🎮</div>
+        <div className="absolute top-1/4 right-1/4 text-4xl opacity-20 animate-float text-light-primary dark:text-dark-primary">🎮</div>
         <div
-          className="absolute bottom-1/3 left-1/4 text-3xl opacity-20 animate-float text-foreground/30"
+          className="absolute bottom-1/3 left-1/4 text-3xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
           style={{ animationDelay: "2s" }}
         >
           🏆
         </div>
         <div
-          className="absolute top-1/2 left-1/6 text-2xl opacity-20 animate-float text-foreground/30"
+          className="absolute top-1/2 left-1/6 text-2xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
           style={{ animationDelay: "4s" }}
         >
           ⚡
@@ -157,15 +157,15 @@ export default function TeamSection({ scrollY }) {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full glass">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full glass-light dark:glass-dark">
             <Crown className="w-6 h-6 text-amber-500" />
-            <span className="text-sm font-semibold text-foreground/80 uppercase tracking-wider">Leadership</span>
+            <span className="text-sm font-semibold text-light-primary dark:text-dark-primary uppercase tracking-wider">Leadership</span>
           </div>
           {/* Enhanced title with better theme support */}
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 dark:from-gray-100 dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent animate-fade-in-up">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gradient-primary-light dark:text-gradient-primary-dark animate-fade-in-up">
             Our Majestic Team
           </h2>
-          <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto leading-relaxed">
             Meet the visionary leaders and passionate innovators who drive GameCom's excellence and shape the future of
             gaming at SRM University
           </p>
@@ -173,7 +173,7 @@ export default function TeamSection({ scrollY }) {
 
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-foreground mb-4">Core Leadership</h3>
+            <h3 className="text-4xl font-bold text-light-primary dark:text-dark-primary mb-4">Core Leadership</h3>
             <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
@@ -183,7 +183,7 @@ export default function TeamSection({ scrollY }) {
               return (
                 <Card
                   key={member.role}
-                  className="group relative p-8 glass hover:glass transition-all duration-700 hover:scale-105 text-center overflow-hidden animate-fade-in-up cursor-pointer hover:shadow-2xl hover:shadow-amber-500/20 dark:hover:shadow-amber-400/30 king-aura"
+                  className="group relative p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-700 hover:scale-105 text-center overflow-hidden animate-fade-in-up cursor-pointer hover:shadow-2xl hover:shadow-amber-500/20 dark:hover:shadow-amber-400/30 king-aura"
                   style={{
                     animationDelay: `${index * 200}ms`,
                   }}
@@ -211,9 +211,9 @@ export default function TeamSection({ scrollY }) {
                   </div>
 
                   {/* Enhanced text with better theme contrast */}
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">{member.role}</h4>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm leading-relaxed">{member.description}</p>
-                  <p className="text-gray-800 dark:text-gray-200 font-medium">{member.name}</p>
+                  <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-3">{member.role}</h4>
+                  <p className="text-light-secondary dark:text-dark-secondary mb-4 text-sm leading-relaxed">{member.description}</p>
+                  <p className="text-light-primary dark:text-dark-primary font-medium">{member.name}</p>
 
                   <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-full backdrop-blur-sm">
                     <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">CORE</span>
@@ -226,7 +226,7 @@ export default function TeamSection({ scrollY }) {
 
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-foreground mb-4">Domain Leadership</h3>
+            <h3 className="text-4xl font-bold text-light-primary dark:text-dark-primary mb-4">Domain Leadership</h3>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
           </div>
 
@@ -236,7 +236,7 @@ export default function TeamSection({ scrollY }) {
               return (
                 <Card
                   key={member.role}
-                  className="group p-6 glass hover:glass transition-all duration-500 hover:scale-105 text-center animate-fade-in-up cursor-pointer hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/20"
+                  className="group p-6 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center animate-fade-in-up cursor-pointer hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/20"
                   style={{
                     animationDelay: `${(index + 4) * 100}ms`,
                   }}
@@ -251,9 +251,9 @@ export default function TeamSection({ scrollY }) {
                   </div>
 
                   {/* Better text contrast for light theme */}
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{member.role}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{member.domain}</p>
-                  <p className="text-gray-800 dark:text-gray-200">{member.name}</p>
+                  <h4 className="text-lg font-bold text-light-primary dark:text-dark-primary mb-2">{member.role}</h4>
+                  <p className="text-sm text-light-secondary dark:text-dark-secondary mb-3">{member.domain}</p>
+                  <p className="text-light-primary dark:text-dark-primary">{member.name}</p>
                 </Card>
               )
             })}
@@ -261,21 +261,21 @@ export default function TeamSection({ scrollY }) {
         </div>
 
         <div className="text-center">
-          <Card className="inline-block p-10 glass max-w-4xl mx-auto">
+          <Card className="inline-block p-10 card-light dark:card-dark max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-6">
               <Star className="w-8 h-8 text-blue-500" />
-              <h3 className="text-3xl font-bold text-foreground">Join Our Legendary Team</h3>
+              <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary">Join Our Legendary Team</h3>
               <Star className="w-8 h-8 text-purple-500" />
             </div>
-            <p className="text-foreground/70 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-light-secondary dark:text-dark-secondary mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
               Ready to make your mark in the gaming world? We're seeking passionate leaders and innovators to join our
               ranks and help shape the future of GameCom.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <button className="gradient-primary-light dark:gradient-primary-dark hover:from-blue-600 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Apply for Leadership
               </button>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+              <button className="btn-outline-light dark:btn-outline-dark px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
                 Become a Member
               </button>
             </div>

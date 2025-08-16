@@ -60,22 +60,22 @@ export default function EventsSection({ scrollY }) {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary-light dark:text-gradient-primary-dark">
             Events & Activities
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto">
             Stay engaged with our regular events, workshops, and content that keeps the community thriving
           </p>
         </div>
 
         {/* Upcoming Events */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-white mb-8 text-center">Upcoming Events</h3>
+          <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-8 text-center">Upcoming Events</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
               <Card
                 key={event.title}
-                className="group p-6 bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105"
+                className="group p-6 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105"
                 style={{
                   transform: `translateY(${scrollY * 0.03 * (index % 2 === 0 ? 1 : -1)}px)`,
                   animationDelay: `${index * 100}ms`,
@@ -90,26 +90,26 @@ export default function EventsSection({ scrollY }) {
                   </span>
                 </div>
 
-                <h4 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
                   {event.title}
                 </h4>
 
                 <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-gray-300">
+                  <div className="flex items-center text-light-secondary dark:text-dark-secondary">
                     <span className="w-4 h-4 mr-2">📅</span>
                     <span>{event.date}</span>
                   </div>
-                  <div className="flex items-center text-gray-300">
+                  <div className="flex items-center text-light-secondary dark:text-dark-secondary">
                     <span className="w-4 h-4 mr-2">⏰</span>
                     <span>{event.time}</span>
                   </div>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">{event.description}</p>
+                <p className="text-light-secondary dark:text-dark-secondary mb-6 leading-relaxed">{event.description}</p>
 
                 <Button
                   variant="outline"
-                  className="w-full border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white transition-all duration-300 bg-transparent"
+                  className="w-full btn-outline-light dark:btn-outline-dark transition-all duration-300"
                 >
                   Learn More
                 </Button>
@@ -120,12 +120,12 @@ export default function EventsSection({ scrollY }) {
 
         {/* Content Schedule */}
         <div>
-          <h3 className="text-3xl font-bold text-white mb-8 text-center">Weekly Content Schedule</h3>
+          <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-8 text-center">Weekly Content Schedule</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {contentSchedule.map((item, index) => (
               <Card
                 key={item.day}
-                className="group p-8 bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center"
+                className="group p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center"
                 style={{
                   transform: `translateY(${scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)}px)`,
                   animationDelay: `${index * 100}ms`,
@@ -138,11 +138,11 @@ export default function EventsSection({ scrollY }) {
                   <span className="text-2xl">{item.icon}</span>
                 </div>
 
-                <h4 className="text-xl font-bold text-white mb-2">{item.day}</h4>
-                <h5 className="text-lg font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-2">{item.day}</h4>
+                <h5 className="text-lg font-semibold text-gradient-primary-light dark:text-gradient-primary-dark mb-4">
                   {item.content}
                 </h5>
-                <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                <p className="text-light-secondary dark:text-dark-secondary leading-relaxed">{item.description}</p>
               </Card>
             ))}
           </div>
@@ -150,12 +150,12 @@ export default function EventsSection({ scrollY }) {
 
         {/* Follow us CTA */}
         <div className="text-center mt-16">
-          <Card className="inline-block p-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-4">Stay Connected</h3>
-            <p className="text-gray-300 mb-6 max-w-2xl">
+          <Card className="inline-block p-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-xl border border-purple-200 dark:border-white/10">
+            <h3 className="text-2xl font-bold text-light-primary dark:text-dark-primary mb-4">Stay Connected</h3>
+            <p className="text-light-secondary dark:text-dark-secondary mb-6 max-w-2xl">
               Follow us on Instagram to never miss our weekly content and stay updated with all GameCom activities!
             </p>
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+            <Button className="gradient-primary-light dark:gradient-primary-dark hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
               Follow @GameCom_SRM
             </Button>
           </Card>

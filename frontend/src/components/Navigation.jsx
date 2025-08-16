@@ -90,7 +90,7 @@ export default function Navigation() {
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
 
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl px-8 py-3 hover:scale-105">
+            <Button className={`${theme === "light" ? "btn-primary-light" : "btn-primary-dark"} rounded-xl px-8 py-3 hover:scale-105 transition-all duration-300`}>
               Join GameCom
             </Button>
           </div>
@@ -135,7 +135,7 @@ export default function Navigation() {
                 {item.name}
               </a>
             ))}
-            <Button className="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 rounded-xl">
+            <Button className={`w-full mt-4 ${theme === "light" ? "btn-primary-light" : "btn-primary-dark"} rounded-xl`}>
               Join GameCom
             </Button>
           </div>

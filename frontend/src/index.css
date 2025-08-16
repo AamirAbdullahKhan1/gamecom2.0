@@ -3,53 +3,38 @@
 @tailwind utilities;
 
 :root {
-  /* Base CSS custom properties */
   --radius: 0.5rem;
 }
 
-/* Creating explicit light theme class with its own CSS variables */
+/* Light theme variables */
 .light {
   --background: 0 0% 100%;
-  --foreground: 15 23 42; /* slate-900 for better contrast */
+  --foreground: 0 0% 3.9%;
   --card: 0 0% 100%;
-  --card-foreground: 15 23 42;
-  --popover: 0 0% 100%;
-  --popover-foreground: 15 23 42;
+  --card-foreground: 0 0% 3.9%;
   --primary: 0 0% 9%;
   --primary-foreground: 0 0% 98%;
   --secondary: 0 0% 96.1%;
   --secondary-foreground: 0 0% 9%;
   --muted: 0 0% 96.1%;
   --muted-foreground: 0 0% 45.1%;
-  --accent: 0 0% 96.1%;
-  --accent-foreground: 0 0% 9%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
   --border: 0 0% 89.8%;
-  --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
 }
 
-/* Dark theme class with its own CSS variables */
+/* Dark theme variables */
 .dark {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
   --card: 0 0% 3.9%;
   --card-foreground: 0 0% 98%;
-  --popover: 0 0% 3.9%;
-  --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 0 0% 9%;
   --secondary: 0 0% 14.9%;
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 14.9%;
   --muted-foreground: 0 0% 63.9%;
-  --accent: 0 0% 14.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
   --border: 0 0% 14.9%;
-  --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
 }
 
@@ -60,7 +45,7 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-  /* Separate grid patterns for light and dark themes */
+  /* Simplified grid patterns for light and dark themes */
   .light body {
     background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
     background-size: 20px 20px;
@@ -72,84 +57,140 @@
   }
 }
 
+/* Theme-specific utility classes */
 @layer utilities {
-  /* Theme-specific text utilities */
+  /* Light theme text colors */
   .text-light-primary {
-    color: rgb(15 23 42); /* slate-900 */
+    @apply text-gray-900;
   }
-
+  
   .text-light-secondary {
-    color: rgb(51 65 85); /* slate-600 */
+    @apply text-gray-600;
   }
-
+  
   .text-light-muted {
-    color: rgb(100 116 139); /* slate-500 */
+    @apply text-gray-500;
   }
 
+  /* Dark theme text colors */
   .text-dark-primary {
-    color: rgb(248 250 252); /* slate-50 */
+    @apply text-white;
   }
-
+  
   .text-dark-secondary {
-    color: rgb(203 213 225); /* slate-300 */
+    @apply text-gray-300;
   }
-
+  
   .text-dark-muted {
-    color: rgb(148 163 184); /* slate-400 */
+    @apply text-gray-400;
   }
 
-  /* Theme-specific background utilities */
-  .bg-light-card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .bg-dark-card {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  /* Theme-specific glassmorphism effects */
+  /* Glass effects */
   .glass-light {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    @apply bg-white/80 backdrop-blur-lg border border-gray-200/50;
   }
-
-  .glass-light:hover {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  }
-
+  
   .glass-dark {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply bg-gray-900/80 backdrop-blur-lg border border-gray-700/50;
   }
 
+  /* Hover effects for glass */
+  .glass-light:hover {
+    @apply bg-white/90 border-gray-300/50;
+  }
+  
   .glass-dark:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    @apply bg-gray-900/90 border-gray-600/50;
+  }
+
+  /* Card backgrounds */
+  .card-light {
+    @apply bg-white/90 backdrop-blur-lg border border-gray-200/50 shadow-lg;
+  }
+  
+  .card-dark {
+    @apply bg-gray-800/90 backdrop-blur-lg border border-gray-700/50 shadow-lg;
+  }
+
+  /* Button variants */
+  .btn-primary-light {
+    @apply bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-primary-dark {
+    @apply bg-blue-500 hover:bg-blue-600 text-white border-0 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary-light {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-300;
+  }
+  
+  .btn-secondary-dark {
+    @apply bg-gray-700 hover:bg-gray-600 text-white border border-gray-600;
+  }
+
+  .btn-outline-light {
+    @apply bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+  }
+  
+  .btn-outline-dark {
+    @apply bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-gray-900;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary-light {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+  }
+  
+  .gradient-primary-dark {
+    @apply bg-gradient-to-r from-blue-500 to-purple-500;
+  }
+
+  .gradient-secondary-light {
+    @apply bg-gradient-to-r from-gray-100 to-gray-200;
+  }
+  
+  .gradient-secondary-dark {
+    @apply bg-gradient-to-r from-gray-800 to-gray-700;
+  }
+
+  /* Text gradients */
+  .text-gradient-primary-light {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-primary-dark {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+  }
+
+  /* Border colors */
+  .border-light {
+    @apply border-gray-200;
+  }
+  
+  .border-dark {
+    @apply border-gray-700;
+  }
+
+  /* Background colors */
+  .bg-light {
+    @apply bg-white;
+  }
+  
+  .bg-dark {
+    @apply bg-gray-900;
+  }
+
+  .bg-light-secondary {
+    @apply bg-gray-50;
+  }
+  
+  .bg-dark-secondary {
+    @apply bg-gray-800;
   }
 }
 
-/* Grid animation */
-@keyframes grid-move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 20px 20px;
-  }
-}
-
-.animate-grid {
-  animation: grid-move 20s linear infinite;
-}
-
-/* Updated animations for better performance */
+/* Removed complex theme utilities, keeping only essential animations */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -161,80 +202,36 @@
   }
 }
 
-@keyframes pulse-glow {
+@keyframes king-glow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-king-glow {
+  animation: king-glow 2s ease-in-out infinite;
 }
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Theme-aware scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
-  opacity: 0.8;
-}
-
-/* Floating animation for meaningful background elements */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(2deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(-10px) rotate(-2deg);
-  }
-}
-
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Enhanced king aura animation for core team members */
-@keyframes king-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(245, 158, 11, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(245, 158, 11, 0.2);
-  }
-}
-
-.king-aura:hover {
-  animation: king-glow 2s ease-in-out infinite;
+html {
+  scroll-behavior: smooth;
 }

@@ -157,7 +157,7 @@ export default function TeamSection({ scrollY }) {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full glass-light dark:glass-dark">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 border-2 border-amber-500 rounded-full glass-light dark:glass-dark">
             <Crown className="w-6 h-6 text-amber-500" />
             <span className="text-sm font-semibold text-light-primary dark:text-dark-primary uppercase tracking-wider">Leadership</span>
           </div>

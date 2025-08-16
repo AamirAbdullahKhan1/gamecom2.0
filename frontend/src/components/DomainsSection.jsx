@@ -44,7 +44,7 @@ export default function DomainsSection({ scrollY }) {
   ]
 
   return (
-    <section id="domains" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+    <section id="domains" className="py-18 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-16">
@@ -100,7 +100,7 @@ export default function DomainsSection({ scrollY }) {
               {/* Learn more button */}
               <Button
                 variant="outline"
-                className={`w-full border-2 bg-gradient-to-r ${domain.gradient} bg-clip-text text-transparent border-current hover:bg-current hover:text-white transition-all duration-300`}
+                className={`w-full border-2 bg-gradient-to-r ${domain.gradient} bg-clip-text text-transparent border-current hover:bg-current hover:text-black dark:hover:text-white transition-all duration-300`}
                 onClick={() => (window.location.href = "/domains")} // Navigate to domains page on button click
               >
                 Explore {domain.name}

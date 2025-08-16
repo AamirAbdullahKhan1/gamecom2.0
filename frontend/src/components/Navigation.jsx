@@ -80,7 +80,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center ml-4 space-x-4 ">
             <Button
               variant="ghost"
               size="sm"

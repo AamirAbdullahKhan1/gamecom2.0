@@ -52,19 +52,19 @@ export default function AboutSection({ scrollY }) {
 
           <div className="space-y-6" style={{ transform: `translateX(${scrollY * 0.1}px)` }}>
             <div className="grid grid-cols-2 gap-6">
-              <Card className="p-6 bg-gradient-to-br from-purple-500/30 to-pink-500/30 dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-xl border border-purple-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
+              <Card className="p-6 cursor-pointer bg-gradient-to-br from-purple-500/50 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-xl  border-gray-300 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">5</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Active Domains</div>
               </Card>
-              <Card className="p-6 bg-gradient-to-br from-blue-500/30 to-purple-500/30 dark:from-blue-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-blue-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
+              <Card className="p-6 cursor-pointer bg-gradient-to-br from-blue-500/30 to-purple-500/30 dark:from-blue-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-blue-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">50+</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Active Members</div>
               </Card>
-              <Card className="p-6 bg-gradient-to-br from-green-500/30 to-blue-500/30 dark:from-green-500/20 dark:to-blue-500/20 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
+              <Card className="p-6 cursor-pointer bg-gradient-to-br from-green-500/30 to-blue-500/30 dark:from-green-500/20 dark:to-blue-500/20 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">Weekly</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Game Nights</div>
               </Card>
-              <Card className="p-6 bg-gradient-to-br from-pink-500/30 to-purple-500/30 dark:from-pink-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-pink-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
+              <Card className="p-6 cursor-pointer bg-gradient-to-br from-pink-500/30 to-purple-500/30 dark:from-pink-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-pink-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg">
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">3x</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Weekly Posts</div>
               </Card>

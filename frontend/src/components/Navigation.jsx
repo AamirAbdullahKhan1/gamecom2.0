@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
 import { useTheme } from "./ThemeProvider"
 import { Sun, Moon, Menu, X } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -61,12 +62,14 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-5">
             {/* GameCom text with scroll-to-top functionality */}
-            <span 
+            <Link to={"#home"}>
+              <span 
               className={`font-bold text-2xl cursor-pointer hover:scale-105 transition-all duration-300 ${theme === "light" ? "text-light-primary" : "text-dark-primary"}`}
               onClick={scrollToTop}
             >
               Game<span className={`mr-4 ${theme === "light" ? "text-blue-600" : "text-blue-400"}`}>Com</span>
             </span>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">

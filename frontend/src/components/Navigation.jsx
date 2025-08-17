@@ -34,8 +34,15 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   const navItems = [
-    { name: "Home", href: "#home", id: "home" },
+    { name: "Home", href: "#home", id: "home", onClick: scrollToTop },
     { name: "About", href: "#about", id: "about" },
     { name: "Domains", href: "#domains", id: "domains" },
     { name: "Team", href: "#team", id: "team" },
@@ -53,10 +60,11 @@ export default function Navigation() {
       <div className="px-6 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-5">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-bold text-lg">GC</span>
-            </div>
-            <span className={`font-bold text-xl ${theme === "light" ? "text-light-primary" : "text-dark-primary"}`}>
+            {/* GameCom text with scroll-to-top functionality */}
+            <span 
+              className={`font-bold text-2xl cursor-pointer hover:scale-105 transition-all duration-300 ${theme === "light" ? "text-light-primary" : "text-dark-primary"}`}
+              onClick={scrollToTop}
+            >
               Game<span className={`mr-4 ${theme === "light" ? "text-blue-600" : "text-blue-400"}`}>Com</span>
             </span>
           </div>
@@ -71,6 +79,7 @@ export default function Navigation() {
                     ? `${theme === "light" ? "glass-light text-blue-600" : "glass-dark text-blue-400"} shadow-lg scale-105`
                     : `${theme === "light" ? "text-light-secondary hover:text-light-primary hover:bg-black/5" : "text-dark-secondary hover:text-dark-primary hover:bg-white/10"} hover:scale-105`
                 }`}
+                onClick={item.onClick}
               >
                 {item.name}
                 {activeSection === item.id && (
@@ -130,7 +139,10 @@ export default function Navigation() {
                     ? `${theme === "light" ? "glass-light text-blue-600" : "glass-dark text-blue-400"}`
                     : `${theme === "light" ? "text-light-secondary hover:text-light-primary hover:bg-black/5" : "text-dark-secondary hover:text-dark-primary hover:bg-white/10"}`
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  if (item.onClick) item.onClick()
+                }}
               >
                 {item.name}
               </a>

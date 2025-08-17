@@ -3,12 +3,55 @@
 import { Button } from "./ui/button"
 import { useEffect, useState } from "react"
 import { Play, Users, Trophy, Gamepad2, ChevronDown } from "lucide-react"
+import { useTheme } from "./ThemeProvider"
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [scrambledText, setScrambledText] = useState("GameCom")
+  const [isScrambling, setIsScrambling] = useState(false)
+  const { theme } = useTheme()
 
   useEffect(() => {
     setIsVisible(true)
+  }, [])
+
+  // Text scrambling animation
+  useEffect(() => {
+    const scrambleText = () => {
+      setIsScrambling(true)
+      const originalText = "GameCom"
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
+      
+      let iterations = 0
+      const maxIterations = 20
+      const interval = setInterval(() => {
+        setScrambledText(
+          originalText
+            .split("")
+            .map((char, index) => {
+              if (iterations > index * 2) {
+                return originalText[index]
+              }
+              return characters[Math.floor(Math.random() * characters.length)]
+            })
+            .join("")
+        )
+        
+        iterations++
+        if (iterations >= maxIterations) {
+          clearInterval(interval)
+          setScrambledText(originalText)
+          setIsScrambling(false)
+        }
+      }, 100)
+    }
+
+    // Initial scramble on load
+    scrambleText()
+
+    // Repeat every 15 seconds
+    const interval = setInterval(scrambleText, 15000)
+    return () => clearInterval(interval)
   }, [])
 
   const stats = [
@@ -74,11 +117,11 @@ export default function HeroSection() {
         >
           <div className="relative group">
             <img
-              src="/gamecom.png"
+              src={theme === "light" ? "/gamecom.png" : "/gcwhite.png"}
               alt="GameCom Logo"
-              className="w-32 h-32 object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-2xl filter brightness-100 dark:brightness-110"
+              className="w-[210px] h-[210px] mt-5 object-contain group-hover:scale-110 transition-all duration-500 drop-shadow-2xl cursor-pointer filter brightness-100 dark:brightness-110"
             />
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 dark:from-blue-400/20 dark:via-purple-400/20 dark:to-pink-400/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 dark:from-blue-400/20 dark:via-purple-400/20 dark:to-pink-400/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
           </div>
         </div>
 
@@ -86,9 +129,8 @@ export default function HeroSection() {
           className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gradient-primary-light dark:text-gradient-primary-dark">
-            Game
-            <span className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent">
-              Com
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent font-mono">
+              {scrambledText}
             </span>
           </h1>
         </div>
@@ -119,13 +161,14 @@ export default function HeroSection() {
             {stats.map((stat, index) => {
               const IconComponent = stat.icon
               return (
-                <div
-                  key={stat.label}
-                  className="card-light dark:card-dark p-6 cursor-pointer rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-xl"
-                >
-                  <IconComponent className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
-                  <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-1">{stat.value}</div>
-                  <div className="text-light-secondary dark:text-dark-secondary text-sm">{stat.label}</div>
+                <div key={stat.label} className="card-tilt-container">
+                  <div
+                    className="card-light dark:card-dark p-6 cursor-pointer rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-xl card-tilt"
+                  >
+                    <IconComponent className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
+                    <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-1">{stat.value}</div>
+                    <div className="text-light-secondary dark:text-dark-secondary text-sm">{stat.label}</div>
+                  </div>
                 </div>
               )
             })}

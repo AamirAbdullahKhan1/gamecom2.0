@@ -181,44 +181,45 @@ export default function TeamSection({ scrollY }) {
             {coreTeam.map((member, index) => {
               const IconComponent = member.icon
               return (
-                <Card
-                  key={member.role}
-                  className="group relative p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-700 hover:scale-105 text-center overflow-hidden animate-fade-in-up cursor-pointer hover:shadow-2xl hover:shadow-amber-500/20 dark:hover:shadow-amber-400/30 king-aura"
-                  style={{
-                    animationDelay: `${index * 200}ms`,
-                  }}
-                  onClick={() => window.open(member.linkedin, "_blank")}
-                >
-                  {/* Enhanced gradient overlay with better theme support */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div key={member.role} className="card-tilt-container">
+                  <Card
+                    className="group relative p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-700 hover:scale-105 text-center overflow-hidden animate-fade-in-up cursor-pointer hover:shadow-2xl hover:shadow-amber-500/20 dark:hover:shadow-amber-400/30 king-aura card-tilt"
+                    style={{
+                      animationDelay: `${index * 200}ms`,
+                    }}
+                    onClick={() => window.open(member.linkedin, "_blank")}
+                  >
+                    {/* Enhanced gradient overlay with better theme support */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  {/* Added royal glow effect around the card */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-400/20 via-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700 -z-10"></div>
+                    {/* Added royal glow effect around the card */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-400/20 via-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-700 -z-10"></div>
 
-                  <div className="relative mb-6">
-                    {/* Enhanced image with royal border and glow */}
-                    <div className="relative">
-                      <img
-                        src={member.image || "/placeholder.svg"}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-2xl mx-auto object-cover shadow-2xl group-hover:scale-110 transition-all duration-500 border-4 border-amber-400/50 group-hover:border-amber-400/80"
-                      />
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative mb-6">
+                      {/* Enhanced image with royal border and glow */}
+                      <div className="relative">
+                        <img
+                          src={member.image || "/placeholder.svg"}
+                          alt={member.name}
+                          className="w-24 h-24 rounded-2xl mx-auto object-cover shadow-2xl group-hover:scale-110 transition-all duration-500 border-4 border-amber-400/50 group-hover:border-amber-400/80"
+                        />
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
+                        <Crown className="w-3 h-3 text-white" />
+                      </div>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                      <Crown className="w-3 h-3 text-white" />
+
+                    {/* Enhanced text with better theme contrast */}
+                    <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-3">{member.role}</h4>
+                    <p className="text-light-secondary dark:text-dark-secondary mb-4 text-sm leading-relaxed">{member.description}</p>
+                    <p className="text-light-primary dark:text-dark-primary font-medium">{member.name}</p>
+
+                    <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-full backdrop-blur-sm">
+                      <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">CORE</span>
                     </div>
-                  </div>
-
-                  {/* Enhanced text with better theme contrast */}
-                  <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-3">{member.role}</h4>
-                  <p className="text-light-secondary dark:text-dark-secondary mb-4 text-sm leading-relaxed">{member.description}</p>
-                  <p className="text-light-primary dark:text-dark-primary font-medium">{member.name}</p>
-
-                  <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-full backdrop-blur-sm">
-                    <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">CORE</span>
-                  </div>
-                </Card>
+                  </Card>
+                </div>
               )
             })}
           </div>
@@ -234,27 +235,28 @@ export default function TeamSection({ scrollY }) {
             {domainLeads.map((member, index) => {
               const IconComponent = member.icon
               return (
-                <Card
-                  key={member.role}
-                  className="group p-6 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center animate-fade-in-up cursor-pointer hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/20"
-                  style={{
-                    animationDelay: `${(index + 4) * 100}ms`,
-                  }}
-                  onClick={() => window.open(member.linkedin, "_blank")}
-                >
-                  <div className="relative mb-4">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-20 h-20 rounded-xl mx-auto object-cover shadow-lg group-hover:scale-110 transition-all duration-300 border-2 border-white/20 group-hover:border-blue-400/50"
-                    />
-                  </div>
+                <div key={member.role} className="card-tilt-container">
+                  <Card
+                    className="group p-6 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center animate-fade-in-up cursor-pointer hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/20 card-tilt"
+                    style={{
+                      animationDelay: `${(index + 4) * 100}ms`,
+                    }}
+                    onClick={() => window.open(member.linkedin, "_blank")}
+                  >
+                    <div className="relative mb-4">
+                      <img
+                        src={member.image || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-20 h-20 rounded-xl mx-auto object-cover shadow-lg group-hover:scale-110 transition-all duration-300 border-2 border-white/20 group-hover:border-blue-400/50"
+                      />
+                    </div>
 
-                  {/* Better text contrast for light theme */}
-                  <h4 className="text-lg font-bold text-light-primary dark:text-dark-primary mb-2">{member.role}</h4>
-                  <p className="text-sm text-light-secondary dark:text-dark-secondary mb-3">{member.domain}</p>
-                  <p className="text-light-primary dark:text-dark-primary">{member.name}</p>
-                </Card>
+                    {/* Better text contrast for light theme */}
+                    <h4 className="text-lg font-bold text-light-primary dark:text-dark-primary mb-2">{member.role}</h4>
+                    <p className="text-sm text-light-secondary dark:text-dark-secondary mb-3">{member.domain}</p>
+                    <p className="text-light-primary dark:text-dark-primary">{member.name}</p>
+                  </Card>
+                </div>
               )
             })}
           </div>

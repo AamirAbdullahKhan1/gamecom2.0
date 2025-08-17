@@ -190,7 +190,7 @@
   }
 }
 
-/* Removed complex theme utilities, keeping only essential animations */
+/* Enhanced animations including card tilt effects */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -222,14 +222,66 @@
   }
 }
 
+@keyframes text-scramble {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-tilt {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }
+
 .animate-king-glow {
   animation: king-glow 2s ease-in-out infinite;
 }
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-text-scramble {
+  animation: text-scramble 0.1s ease-in-out;
+}
+
+.animate-card-tilt {
+  animation: card-tilt 0.3s ease-out forwards;
+}
+
+/* Card tilt effect classes */
+.card-tilt-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-tilt {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
 }
 
 html {

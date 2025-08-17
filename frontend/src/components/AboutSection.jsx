@@ -13,12 +13,43 @@ export default function AboutSection({ scrollY }) {
           className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "1s" }}
         ></div>
-        <div className="absolute top-1/2 left-1/4 text-4xl opacity-20 animate-float text-light-primary dark:text-dark-primary">🎮</div>
+        {/* Gaming and Tech themed floating elements */}
+        <div className="absolute top-1/2 left-1/4 text-4xl opacity-20 animate-float text-light-primary dark:text-dark-primary">💻</div>
         <div
           className="absolute bottom-1/3 right-1/4 text-3xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
           style={{ animationDelay: "2s" }}
         >
+          🎮
+        </div>
+        <div
+          className="absolute top-1/3 right-1/6 text-2xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
+          style={{ animationDelay: "4s" }}
+        >
           ⚡
+        </div>
+        <div
+          className="absolute bottom-1/4 left-1/3 text-3xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
+          style={{ animationDelay: "6s" }}
+        >
+          🎯
+        </div>
+        <div
+          className="absolute top-1/4 right-1/3 text-2xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
+          style={{ animationDelay: "8s" }}
+        >
+          🚀
+        </div>
+        <div
+          className="absolute top-1/6 left-1/6 text-3xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
+          style={{ animationDelay: "10s" }}
+        >
+          🎨
+        </div>
+        <div
+          className="absolute bottom-1/6 right-1/6 text-2xl opacity-20 animate-float text-light-primary dark:text-dark-primary"
+          style={{ animationDelay: "12s" }}
+        >
+          📸
         </div>
       </div>
 

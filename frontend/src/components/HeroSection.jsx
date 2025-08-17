@@ -63,43 +63,51 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Gaming and Tech themed floating elements */}
         <div className="absolute top-20 left-10 animate-float opacity-30">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-blue-600 dark:text-blue-400">
-            <path
-              d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"
-              fill="currentColor"
-            />
-          </svg>
+          <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-2xl">🎮</span>
+          </div>
         </div>
         <div className="absolute top-40 right-20 animate-float opacity-25" style={{ animationDelay: "1s" }}>
-          <svg width="35" height="35" viewBox="0 0 24 24" fill="none" className="text-purple-600 dark:text-purple-400">
-            <rect x="6" y="4" width="12" height="8" rx="2" fill="currentColor" />
-            <path d="M8 12v4h8v-4" fill="currentColor" />
-            <circle cx="9" cy="9" r="1" fill="white" />
-            <circle cx="15" cy="9" r="1" fill="white" />
-          </svg>
+          <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-xl">💻</span>
+          </div>
         </div>
         <div className="absolute bottom-40 left-20 animate-float opacity-30" style={{ animationDelay: "2s" }}>
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" className="text-pink-600 dark:text-pink-400">
-            <path
-              d="M12 2L13.09 8.26L20 9L14 14L16.18 21L12 17.77L7.82 21L10 14L4 9L10.91 8.26L12 2Z"
-              fill="currentColor"
-            />
-          </svg>
+          <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-lg">⚡</span>
+          </div>
         </div>
         <div className="absolute top-60 left-1/3 animate-float opacity-25" style={{ animationDelay: "3s" }}>
-          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" className="text-green-600 dark:text-green-400">
-            <circle cx="12" cy="12" r="10" fill="currentColor" />
-            <path d="M8 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none" />
-          </svg>
+          <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-2xl">🎯</span>
+          </div>
         </div>
         <div className="absolute bottom-60 right-1/4 animate-float opacity-30" style={{ animationDelay: "4s" }}>
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" className="text-orange-600 dark:text-orange-400">
-            <path
-              d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"
-              fill="currentColor"
-            />
-          </svg>
+          <div className="w-11 h-11 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-xl">🏆</span>
+          </div>
+        </div>
+        <div className="absolute top-1/3 right-1/3 animate-float opacity-20" style={{ animationDelay: "5s" }}>
+          <div className="w-9 h-9 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-lg">🎨</span>
+          </div>
+        </div>
+        <div className="absolute bottom-1/3 left-1/3 animate-float opacity-25" style={{ animationDelay: "6s" }}>
+          <div className="w-13 h-13 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-xl">🚀</span>
+          </div>
+        </div>
+        <div className="absolute top-1/4 left-1/4 animate-float opacity-20" style={{ animationDelay: "7s" }}>
+          <div className="w-7 h-7 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-sm">⭐</span>
+          </div>
+        </div>
+        <div className="absolute bottom-1/4 right-1/4 animate-float opacity-30" style={{ animationDelay: "8s" }}>
+          <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white text-lg">🎪</span>
+          </div>
         </div>
       </div>
 

@@ -249,6 +249,35 @@
   }
 }
 
+/* Horizontal marquee for animated DOMAINS tile */
+@keyframes marquee-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: 200%;
+  animation: marquee-x 18s linear infinite;
+  will-change: transform;
+}
+
+.marquee-segment {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  white-space: nowrap;
+  padding-right: 2rem;
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }

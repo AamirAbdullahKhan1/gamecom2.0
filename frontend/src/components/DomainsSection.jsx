@@ -4,6 +4,7 @@ import { Card } from "./ui/card"
 import { Button } from "./ui/button"
 import { Code, Gamepad2, Palette, Camera, Megaphone, Users, Clock, Star, Zap, Target } from "lucide-react"
 import {Link} from "react-router-dom"
+import { Fragment } from "react"
 
 export default function DomainsSection({ scrollY }) {
   const domains = [
@@ -134,84 +135,104 @@ export default function DomainsSection({ scrollY }) {
           </p>
         </div>
 
-        {/* Domains grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Magic Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-7 auto-rows-[180px] md:auto-rows-[180px] lg:auto-rows-[220px] mb-16">
           {domains.map((domain, index) => {
             const IconComponent = domain.icon
+            // Layout map inspired by Magic Bento
+            const spanMap = [
+              "md:col-span-2",
+              "md:row-span-2",
+              "",
+              "md:col-span-2",
+              "",
+            ]
+            const spans = spanMap[index] || ""
             return (
-              <div key={domain.name} className="card-tilt-container">
-                <Card
-                  className="group cursor-pointer p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl card-tilt"
-                  style={{
-                    transform: `translateY(${scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)}px)`,
-                    animationDelay: `${index * 100}ms`,
-                  }}
-                >
-                  {/* Domain header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-r ${domain.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                    >
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-light-primary dark:text-dark-primary group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
-                        {domain.name}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-light-secondary dark:text-dark-secondary">
-                        <Users className="w-4 h-4" />
-                        <span>{domain.members}</span>
+              <Fragment key={domain.name}>
+              <div className={`group relative ${spans} transition-transform duration-300 ease-out active:scale-[0.99] md:hover:-translate-y-1`}>
+                {/* Gradient border wrapper */}
+                <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-purple-500/30 via-transparent to-pink-500/30 opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                {/* Card body */}
+                <div className="relative h-full w-full rounded-3xl card-light dark:card-dark overflow-hidden transition-shadow duration-300 group-hover:shadow-2xl">
+                  {/* Subtle grid overlay */}
+                  <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-size:16px_16px] bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.6)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.6)_1px,transparent_0)]"></div>
+                  {/* Hover glow blob */}
+                  <div className={`pointer-events-none absolute -right-20 -top-20 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 bg-gradient-to-r ${domain.gradient}`}></div>
+                  {/* Sheen */}
+                  <div className="pointer-events-none absolute -inset-x-40 -inset-y-20 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                  {/* Corner accents */}
+                  <div className="pointer-events-none absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-transparent"></div>
+                  <div className="pointer-events-none absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-pink-500/10 to-transparent"></div>
+
+                  {/* Content */}
+                  <div className="relative h-full p-5 md:p-6 lg:p-7 flex flex-col">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                      <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-r ${domain.gradient} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:rotate-1 transition-transform`}>
+                        <IconComponent className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg md:text-2xl font-bold text-light-primary dark:text-dark-primary">{domain.name}</h3>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-light-secondary dark:text-dark-secondary">
+                          <Users className="w-4 h-4" />
+                          <span>{domain.members}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="text-light-secondary dark:text-dark-secondary mb-6 leading-relaxed">{domain.fullDescription}</p>
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-light-secondary dark:text-dark-secondary overflow-hidden leading-relaxed">{domain.description}</p>
 
-                  {/* Skills */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2">
-                      <Star className="w-4 h-4 text-yellow-500" />
-                      <h4 className="text-sm font-semibold text-purple-600 dark:text-purple-400 uppercase tracking-wide">Key Skills</h4>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {domain.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-light-primary dark:text-gray-300 text-sm rounded-full backdrop-blur-sm border border-purple-200/50 dark:border-white/10 hover:scale-105 transition-transform duration-200"
-                        >
+                    {/* Chips / skills (show a few) */}
+                    <div className="mt-3 md:mt-4 flex flex-wrap gap-2">
+                      {domain.skills.slice(0, 3).map((skill) => (
+                        <span key={skill} className="px-2.5 py-1 rounded-full text-xs border border-purple-200/50 dark:border-white/10 bg-gradient-to-r from-purple-500/10 to-pink-500/10 text-light-primary dark:text-gray-300">
                           {skill}
                         </span>
                       ))}
                     </div>
-                  </div>
 
-                  {/* Projects */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2">
-                      <Zap className="w-4 h-4 text-blue-500" />
-                      <h4 className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Active Projects</h4>
-                    </div>
-                    <div className="space-y-2">
-                      {domain.projects.map((project, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm text-light-secondary dark:text-dark-secondary">
-                          <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
-                          <span>{project}</span>
-                        </div>
-                      ))}
+                    {/* Footer CTA */}
+                    <div className="mt-auto pt-3 md:pt-4">
+                      <Button
+                        variant="outline"
+                        className={`w-full uppercase text-md border-2 rounded-2xl md:rounded-xl bg-gradient-to-r ${domain.gradient} bg-clip-text text-transparent border-current hover:bg-current hover:text-black dark:hover:text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-95`}
+                        onClick={() => (window.location.href = "/domains")}
+                      >
+                        Explore {domain.name}
+                      </Button>
                     </div>
                   </div>
-
-                  {/* Learn more button */}
-                  <Button
-                    variant="outline"
-                    className={`w-full border-2 bg-gradient-to-r ${domain.gradient} bg-clip-text text-transparent border-current hover:bg-current hover:text-black dark:hover:text-white transition-all duration-300 group-hover:scale-105`}
-                    onClick={() => (window.location.href = "/domains")}
-                  >
-                    Explore {domain.name}
-                  </Button>
-                </Card>
+                </div>
               </div>
+              {index === 2 && (
+                <div className="group relative hidden md:block">
+                  <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-purple-500/30 via-transparent to-pink-500/30 opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative h-full w-full rounded-3xl card-light dark:card-dark overflow-hidden flex items-center">
+                    <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-size:16px_16px] bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.6)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.6)_1px,transparent_0)]"></div>
+                    <div className="pointer-events-none absolute -left-10 -top-10 w-44 h-44 rounded-full blur-3xl bg-purple-500/20"></div>
+                    <div className="pointer-events-none absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl bg-pink-500/20"></div>
+                    <div className="relative z-10 w-full marquee-container">
+                      <div className="marquee-track">
+                        <div className="marquee-segment">
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                        </div>
+                        <div className="marquee-segment">
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                          <span className="text-4xl font-extrabold tracking-wider text-gradient-primary-light dark:text-gradient-primary-dark">DOMAINS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              </Fragment>
             )
           })}
         </div>

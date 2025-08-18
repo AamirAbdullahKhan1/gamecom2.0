@@ -62,7 +62,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-5">
             {/* GameCom text with scroll-to-top functionality */}
-            <Link to={"#home"}>
+            <Link to={"/"}>
               <span 
               className={`font-bold text-2xl cursor-pointer hover:scale-105 transition-all duration-300 ${theme === "light" ? "text-light-primary" : "text-dark-primary"}`}
               onClick={scrollToTop}

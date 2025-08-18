@@ -2,24 +2,25 @@
 
 import { Card } from "./ui/card"
 import ProfileCard from "./effects/ProfileCard"
+import TeamCard from "./effects/TeamCard"
 import { Crown, Star, Shield, Zap, Code, Palette, Megaphone, Gamepad2, Camera, Users, Trophy, Award, Target, Sparkles } from "lucide-react"
 
 export default function TeamSection({ scrollY }) {
   const coreTeam = [
     {
       role: "President",
-      name: "Arjun Sharma",
+      name: "Aamir Abdullah Khan",
       image: "https://live.staticflickr.com/65535/54644987566_28480da066_z.jpg",
       linkedin: "https://linkedin.com/in/arjun-sharma-gamecom",
       gradient: "from-amber-400 via-yellow-500 to-orange-500",
       icon: Crown,
       description: "Leading GameCom's vision and strategic direction",
       special: true,
-      achievements: ["5+ Years Experience", "100+ Events Led", "Strategic Visionary"],
+      achievements: ["2+ Years Experience", "10+ Events Led", "Strategic Visionary"],
     },
     {
       role: "Vice-President",
-      name: "Priya Patel",
+      name: "J Swethaa",
       image: "/female-student-leader.png",
       linkedin: "https://linkedin.com/in/priya-patel-gamecom",
       gradient: "from-blue-500 via-purple-500 to-indigo-600",
@@ -30,7 +31,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Director",
-      name: "Rahul Kumar",
+      name: "Adityanshu Padhy",
       image: "/professional-male-director.png",
       linkedin: "https://linkedin.com/in/rahul-kumar-gamecom",
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
@@ -41,7 +42,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Administrator",
-      name: "Sneha Reddy",
+      name: "Rajeev Suri Anand",
       image: "/placeholder-0s4p1.png",
       linkedin: "https://linkedin.com/in/sneha-reddy-gamecom",
       gradient: "from-rose-500 via-pink-500 to-purple-600",
@@ -55,7 +56,7 @@ export default function TeamSection({ scrollY }) {
   const domainLeads = [
     {
       role: "Technical Lead",
-      name: "Vikram Singh",
+      name: "Kanishak Bishnoi",
       image: "/tech-lead-student.png",
       linkedin: "https://linkedin.com/in/vikram-singh-tech",
       gradient: "from-blue-600 to-cyan-500",
@@ -65,7 +66,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Technical Co-Lead",
-      name: "Ananya Gupta",
+      name: "Pradeepa Jai",
       image: "/female-tech-developer.png",
       linkedin: "https://linkedin.com/in/ananya-gupta-tech",
       gradient: "from-blue-500 to-cyan-400",
@@ -75,7 +76,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Design Lead",
-      name: "Karthik Menon",
+      name: "Abhinav Pillai",
       image: "/creative-designer-student.png",
       linkedin: "https://linkedin.com/in/karthik-menon-design",
       gradient: "from-pink-600 to-rose-500",
@@ -85,7 +86,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Design Co-Lead",
-      name: "Ishita Jain",
+      name: "Rashmi Ganesh",
       image: "/female-ui-designer.png",
       linkedin: "https://linkedin.com/in/ishita-jain-design",
       gradient: "from-pink-500 to-rose-400",
@@ -95,7 +96,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "PR Lead",
-      name: "Aditya Verma",
+      name: "Varsha V",
       image: "/pr-marketing-student.png",
       linkedin: "https://linkedin.com/in/aditya-verma-pr",
       gradient: "from-orange-600 to-red-500",
@@ -105,7 +106,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Game Dev Lead",
-      name: "Rohan Das",
+      name: "Vansh Jain",
       image: "/placeholder-kn8ld.png",
       linkedin: "https://linkedin.com/in/rohan-das-gamedev",
       gradient: "from-purple-600 to-pink-500",
@@ -115,7 +116,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Game Dev Co-Lead",
-      name: "Meera Nair",
+      name: "Anshuman Behera",
       image: "/female-game-developer.png",
       linkedin: "https://linkedin.com/in/meera-nair-gamedev",
       gradient: "from-purple-500 to-pink-400",
@@ -125,7 +126,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Head of Media",
-      name: "Aryan Khanna",
+      name: "A S Vignesh",
       image: "/media-photographer-student.png",
       linkedin: "https://linkedin.com/in/aryan-khanna-media",
       gradient: "from-green-600 to-emerald-500",
@@ -135,7 +136,7 @@ export default function TeamSection({ scrollY }) {
     },
     {
       role: "Creative Video Grapher",
-      name: "Kavya Iyer",
+      name: "Hemantheswar Reddy",
       image: "/placeholder.svg?height=100&width=100",
       linkedin: "https://linkedin.com/in/kavya-iyer-media",
       gradient: "from-green-500 to-emerald-400",
@@ -212,23 +213,19 @@ export default function TeamSection({ scrollY }) {
             <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {coreTeam.map((member, index) => (
               <div key={member.role} className="animate-fade-in-up" style={{ animationDelay: `${index * 120}ms` }}>
-                <ProfileCard
-                  avatarUrl={member.image}
+                <TeamCard
+                  photo={member.image}
                   name={member.name}
-                  title={member.role}
-                  handle={member.name.toLowerCase().replace(/\s+/g, "_")}
-                  status={member.description}
-                  contactText="Connect"
-                  enableTilt={true}
-                  enableMobileTilt={false}
-                  className="cursor-pointer pc-core-variant"
-                  avatarSize="70%"
-                  avatarScaleHover={1.08}
-                  size="large"
-                  onContactClick={() => window.open(member.linkedin, "_blank")}
+                  role={member.role}
+                  subtitle={member.description}
+                  accent={index % 2 === 0 ? "amber" : "indigo"}
+                  size="lg"
+                  variant="core"
+                  linkedinUrl={member.linkedin}
+                  onClick={() => window.open(member.linkedin, "_blank")}
                 />
               </div>
             ))}
@@ -244,20 +241,15 @@ export default function TeamSection({ scrollY }) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {domainLeads.map((member, index) => (
               <div key={member.role} className="animate-fade-in-up" style={{ animationDelay: `${(index + 4) * 80}ms` }}>
-                <ProfileCard
-                  avatarUrl={member.image}
+                <TeamCard
+                  photo={member.image}
                   name={member.name}
-                  title={`${member.role} • ${member.domain}`}
-                  handle={member.name.toLowerCase().replace(/\s+/g, "_")}
-                  status={member.expertise.slice(0, 3).join(" • ")}
-                  contactText="Profile"
-                  enableTilt={true}
-                  enableMobileTilt={false}
-                  className="cursor-pointer pc-domain-variant"
-                  size="compact"
-                  avatarSize="64%"
-                  avatarScaleHover={1.06}
-                  onContactClick={() => window.open(member.linkedin, "_blank")}
+                  role={`${member.role}`}
+                  subtitle={`${member.domain} • ${member.expertise.slice(0,3).join(" • ")}`}
+                  accent={"blue"}
+                  size="md"
+                  linkedinUrl={member.linkedin}
+                  onClick={() => window.open(member.linkedin, "_blank")}
                 />
               </div>
             ))}

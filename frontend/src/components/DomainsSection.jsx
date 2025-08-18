@@ -4,7 +4,8 @@ import { Card } from "./ui/card"
 import { Button } from "./ui/button"
 import { Code, Gamepad2, Palette, Camera, Megaphone, Users, Clock, Star, Zap, Target } from "lucide-react"
 import {Link} from "react-router-dom"
-import { Fragment } from "react"
+import { Fragment, useRef } from "react"
+import PixelOverlay from "./effects/PixelOverlay"
 
 export default function DomainsSection({ scrollY }) {
   const domains = [
@@ -139,6 +140,7 @@ export default function DomainsSection({ scrollY }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-7 auto-rows-[180px] md:auto-rows-[180px] lg:auto-rows-[220px] mb-16">
           {domains.map((domain, index) => {
             const IconComponent = domain.icon
+            const pixelRef = useRef(null)
             // Layout map inspired by Magic Bento
             const spanMap = [
               "md:col-span-2",
@@ -154,7 +156,13 @@ export default function DomainsSection({ scrollY }) {
                 {/* Gradient border wrapper */}
                 <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-purple-500/30 via-transparent to-pink-500/30 opacity-60 group-hover:opacity-100 transition-opacity"></div>
                 {/* Card body */}
-                <div className="relative h-full w-full rounded-3xl card-light dark:card-dark overflow-hidden transition-shadow duration-300 group-hover:shadow-2xl">
+                <div
+                  className="relative cursor-pointer h-full w-full rounded-3xl card-light dark:card-dark overflow-hidden transition-shadow duration-300 group-hover:shadow-2xl"
+                  onMouseEnter={() => pixelRef.current?.appear()}
+                  onMouseLeave={() => pixelRef.current?.disappear()}
+                  onTouchStart={() => pixelRef.current?.appear()}
+                  onTouchEnd={() => pixelRef.current?.disappear()}
+                >
                   {/* Subtle grid overlay */}
                   <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-size:16px_16px] bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.6)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.6)_1px,transparent_0)]"></div>
                   {/* Hover glow blob */}
@@ -164,9 +172,11 @@ export default function DomainsSection({ scrollY }) {
                   {/* Corner accents */}
                   <div className="pointer-events-none absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-transparent"></div>
                   <div className="pointer-events-none absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-pink-500/10 to-transparent"></div>
+                  {/* Canvas-based Pixel overlay (theme-aware) */}
+                  <PixelOverlay ref={pixelRef} className="opacity-90" />
 
                   {/* Content */}
-                  <div className="relative h-full p-5 md:p-6 lg:p-7 flex flex-col">
+                  <div className="relative z-10 h-full p-5 md:p-6 lg:p-7 flex flex-col">
                     {/* Header */}
                     <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                       <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-r ${domain.gradient} flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:rotate-1 transition-transform`}>

@@ -278,6 +278,50 @@
   padding-right: 2rem;
 }
 
+/* Pixel-card effect (theme aware) */
+@keyframes pixel-pan {
+  0% {
+    background-position: 0 0, 8px 8px;
+  }
+  100% {
+    background-position: -16px 0, -8px 8px;
+  }
+}
+
+@keyframes pixel-blink {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.15);
+  }
+}
+
+.pixel-card-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Checkerboard pixels using offset conic gradients */
+  background-image:
+    conic-gradient(from 90deg, transparent 0 25%, var(--pixel-color, rgba(0,0,0,0.2)) 0 50%, transparent 0 75%, var(--pixel-color, rgba(0,0,0,0.2)) 0),
+    conic-gradient(from 90deg, var(--pixel-color, rgba(0,0,0,0.2)) 0 25%, transparent 0 50%, var(--pixel-color, rgba(0,0,0,0.2)) 0 75%, transparent 0);
+  background-size: 16px 16px, 16px 16px;
+  background-position: 0 0, 8px 8px;
+  mask-image: radial-gradient(ellipse at center, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, black 60%, transparent 100%);
+  mix-blend-mode: normal;
+  animation: pixel-pan 16s linear infinite, pixel-blink 1.8s ease-in-out infinite;
+  will-change: background-position, filter, opacity;
+}
+
+.light .pixel-card-overlay {
+  --pixel-color: rgba(99, 102, 241, 0.22); /* indigo-500/22 */
+}
+
+.dark .pixel-card-overlay {
+  --pixel-color: rgba(168, 85, 247, 0.16); /* purple-500/16 */
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;
 }

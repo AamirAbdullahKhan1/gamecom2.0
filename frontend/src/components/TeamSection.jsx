@@ -1,6 +1,7 @@
 "use client"
 
 import { Card } from "./ui/card"
+import ProfileCard from "./effects/ProfileCard"
 import { Crown, Star, Shield, Zap, Code, Palette, Megaphone, Gamepad2, Camera, Users, Trophy, Award, Target, Sparkles } from "lucide-react"
 
 export default function TeamSection({ scrollY }) {
@@ -8,7 +9,7 @@ export default function TeamSection({ scrollY }) {
     {
       role: "President",
       name: "Arjun Sharma",
-      image: "/professional-male-student-leader.png",
+      image: "https://live.staticflickr.com/65535/54644987566_28480da066_z.jpg",
       linkedin: "https://linkedin.com/in/arjun-sharma-gamecom",
       gradient: "from-amber-400 via-yellow-500 to-orange-500",
       icon: Crown,
@@ -211,49 +212,26 @@ export default function TeamSection({ scrollY }) {
             <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreTeam.map((member, index) => {
-              const IconComponent = member.icon
-              return (
-                <Card
-                  key={member.role}
-                  className="group relative p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 hover:scale-105 text-center overflow-hidden animate-fade-in-up cursor-pointer hover:shadow-xl"
-                  style={{
-                    animationDelay: `${index * 200}ms`,
-                  }}
-                  onClick={() => window.open(member.linkedin, "_blank")}
-                >
-                  <div className="relative mb-6">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-2xl mx-auto object-cover shadow-lg group-hover:scale-105 transition-all duration-300 border-2 border-amber-400/30 group-hover:border-amber-400/60"
-                    />
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <Crown className="w-3 h-3 text-white" />
-                    </div>
-                  </div>
-
-                  <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-3">{member.role}</h4>
-                  <p className="text-light-secondary dark:text-dark-secondary mb-4 text-sm leading-relaxed">{member.description}</p>
-                  <p className="text-light-primary dark:text-dark-primary font-medium mb-4">{member.name}</p>
-
-                  {/* Achievements */}
-                  <div className="space-y-2 mb-4">
-                    {member.achievements.map((achievement, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400">
-                        <Star className="w-3 h-3" />
-                        <span>{achievement}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-amber-500/30 to-orange-500/30 rounded-full backdrop-blur-sm">
-                    <span className="text-xs font-semibold text-amber-700 dark:text-amber-300">CORE</span>
-                  </div>
-                </Card>
-              )
-            })}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {coreTeam.map((member, index) => (
+              <div key={member.role} className="animate-fade-in-up" style={{ animationDelay: `${index * 120}ms` }}>
+                <ProfileCard
+                  avatarUrl={member.image}
+                  name={member.name}
+                  title={member.role}
+                  handle={member.name.toLowerCase().replace(/\s+/g, "_")}
+                  status={member.description}
+                  contactText="Connect"
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  className="cursor-pointer pc-core-variant"
+                  avatarSize="70%"
+                  avatarScaleHover={1.08}
+                  size="large"
+                  onContactClick={() => window.open(member.linkedin, "_blank")}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -264,40 +242,25 @@ export default function TeamSection({ scrollY }) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {domainLeads.map((member, index) => {
-              const IconComponent = member.icon
-              return (
-                <Card
-                  key={member.role}
-                  className="group p-6 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 hover:scale-105 text-center animate-fade-in-up cursor-pointer hover:shadow-lg"
-                  style={{
-                    animationDelay: `${(index + 4) * 100}ms`,
-                  }}
-                  onClick={() => window.open(member.linkedin, "_blank")}
-                >
-                  <div className="relative mb-4">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className="w-20 h-20 rounded-xl mx-auto object-cover shadow-lg group-hover:scale-105 transition-all duration-300 border-2 border-white/20 group-hover:border-blue-400/50"
-                    />
-                  </div>
-
-                  <h4 className="text-lg font-bold text-light-primary dark:text-dark-primary mb-2">{member.role}</h4>
-                  <p className="text-sm text-light-secondary dark:text-dark-secondary mb-3">{member.domain}</p>
-                  <p className="text-light-primary dark:text-dark-primary mb-3 font-medium">{member.name}</p>
-
-                  {/* Expertise tags */}
-                  <div className="flex flex-wrap gap-1 justify-center">
-                    {member.expertise.map((skill, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-xs rounded-full border border-blue-200/50 dark:border-white/10">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </Card>
-              )
-            })}
+            {domainLeads.map((member, index) => (
+              <div key={member.role} className="animate-fade-in-up" style={{ animationDelay: `${(index + 4) * 80}ms` }}>
+                <ProfileCard
+                  avatarUrl={member.image}
+                  name={member.name}
+                  title={`${member.role} • ${member.domain}`}
+                  handle={member.name.toLowerCase().replace(/\s+/g, "_")}
+                  status={member.expertise.slice(0, 3).join(" • ")}
+                  contactText="Profile"
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  className="cursor-pointer pc-domain-variant"
+                  size="compact"
+                  avatarSize="64%"
+                  avatarScaleHover={1.06}
+                  onContactClick={() => window.open(member.linkedin, "_blank")}
+                />
+              </div>
+            ))}
           </div>
         </div>
 

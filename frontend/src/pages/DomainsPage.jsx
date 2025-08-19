@@ -279,40 +279,37 @@ export default function DomainsPage() {
             </div>
 
             {/* Row 1 */}
-            <LogoLoop speed={24}>
-              <div className="logo-pill">
-                <img src="/gamecom.png" alt="GameCom" className="logo-img dark:hidden" />
-                <img src="/gcwhite.png" alt="GameCom" className="logo-img hidden dark:block" />
-                <span className="logo-label">GameCom</span>
-              </div>
-              <div className="logo-pill"><span className="logo-label">Unity</span></div>
-              <div className="logo-pill"><span className="logo-label">Unreal Engine</span></div>
-              <div className="logo-pill"><span className="logo-label">Godot</span></div>
-              <div className="logo-pill"><span className="logo-label">Blender</span></div>
-              <div className="logo-pill"><span className="logo-label">C#</span></div>
-              <div className="logo-pill"><span className="logo-label">C++</span></div>
-              <div className="logo-pill"><span className="logo-label">Python</span></div>
-              <div className="logo-pill"><img src="/vite.svg" alt="Vite" className="logo-img" /><span className="logo-label">Vite</span></div>
-              <div className="logo-pill"><img src="/src/assets/react.svg" alt="React" className="logo-img" /><span className="logo-label">React</span></div>
-              <div className="logo-pill"><span className="logo-label">Tailwind CSS</span></div>
-              <div className="logo-pill"><span className="logo-label">Three.js</span></div>
-              <div className="logo-pill"><span className="logo-label">TypeScript</span></div>
+            <LogoLoop speed={22}>
+              <img src="/gamecom.png" alt="GameCom" className="h-12 w-auto dark:hidden" />
+              <img src="/gcwhite.png" alt="GameCom" className="h-12 w-auto hidden dark:block" />
+              <img alt="Unity" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Unity_Technologies_logo.svg/240px-Unity_Technologies_logo.svg.png" />
+              <img alt="Unreal Engine" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UE_Logo_Black_Centered.svg/240px-UE_Logo_Black_Centered.svg.png" />
+              <img alt="Godot" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/240px-Godot_icon.svg.png" />
+              <img alt="Blender" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/240px-Blender_logo_no_text.svg.png" />
+              <img alt="React" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/240px-React-icon.svg.png" />
+              <img alt="Vite" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/240px-Vitejs-logo.svg.png" />
+              <img alt="Tailwind CSS" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/240px-Tailwind_CSS_Logo.svg.png" />
+              <img alt="Three.js" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/240px-Three.js_Icon.svg.png" />
+              <img alt="TypeScript" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/240px-Typescript_logo_2020.svg.png" />
+              <img alt="C Sharp" className="h-12 w-auto" loading="lazy" decoding="async" src="https://live.staticflickr.com/65535/54731379406_9f41d1de20_s.jpg" />
+              <img alt="C++" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/240px-ISO_C%2B%2B_Logo.svg.png" />
+              <img alt="Python" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/240px-Python-logo-notext.svg.png" />
             </LogoLoop>
 
             {/* Row 2 (reverse) */}
-            <LogoLoop speed={28} direction="reverse">
-              <div className="logo-pill"><span className="logo-label">Node.js</span></div>
-              <div className="logo-pill"><span className="logo-label">Express</span></div>
-              <div className="logo-pill"><span className="logo-label">Git</span></div>
-              <div className="logo-pill"><span className="logo-label">GitHub</span></div>
-              <div className="logo-pill"><span className="logo-label">VS Code</span></div>
-              <div className="logo-pill"><span className="logo-label">Figma</span></div>
-              <div className="logo-pill"><span className="logo-label">Photoshop</span></div>
-              <div className="logo-pill"><span className="logo-label">Illustrator</span></div>
-              <div className="logo-pill"><span className="logo-label">After Effects</span></div>
-              <div className="logo-pill"><span className="logo-label">MongoDB</span></div>
-              <div className="logo-pill"><span className="logo-label">Prisma</span></div>
-              <div className="logo-pill"><span className="logo-label">Socket.IO</span></div>
+            <LogoLoop speed={24} direction="reverse">
+              <img alt="Node.js" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/240px-Node.js_logo.svg.png" />
+              <img alt="Express" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" />
+              <img alt="Git" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/240px-Git_icon.svg.png" />
+              <img alt="GitHub" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/240px-Octicons-mark-github.svg.png" />
+              <img alt="VS Code" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/240px-Visual_Studio_Code_1.35_icon.svg.png" />
+              <img alt="Figma" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/240px-Figma-logo.svg.png" />
+              <img alt="Adobe Photoshop" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/2/20/Photoshop_CC_icon.png" />
+              <img alt="Adobe Illustrator" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/240px-Adobe_Illustrator_CC_icon.svg.png" />
+              <img alt="Adobe After Effects" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/240px-Adobe_After_Effects_CC_icon.svg.png" />
+              <img alt="MongoDB" className="h-12 w-auto" loading="lazy" decoding="async" src="https://live.staticflickr.com/65535/54731600428_34f3447388_m.jpg" />
+              <img alt="Prisma" className="h-12 w-auto" loading="lazy" decoding="async" src="https://avatars.githubusercontent.com/u/17219288?s=200&v=4" />
+              <img alt="Socket.IO" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Socket-io.svg/240px-Socket-io.svg.png" />
             </LogoLoop>
           </div>
 

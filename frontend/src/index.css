@@ -382,7 +382,7 @@ html {
 }
 
 .logo-track {
-  width: 200%;
+  width: max-content;
   animation-name: logo-scroll-x;
   animation-timing-function: linear;
   animation-iteration-count: infinite;

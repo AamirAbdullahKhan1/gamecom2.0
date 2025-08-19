@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft, Users, Trophy, Code, Palette, Camera, Megaphone, Gamepad2, Star, Zap, Target, Award, Clock, BookOpen } from "lucide-react"
 import Navigation from "../components/Navigation"
+import LogoLoop from "../components/effects/LogoLoop"
+import Footer from "../components/Footer"
 
 const domains = [
   {
@@ -269,6 +271,51 @@ export default function DomainsPage() {
             </p>
           </div>
 
+          {/* Logo Loop: Tech Stacks & Tools */}
+          <div className="mb-20">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary">Tech Stacks & Tools</h3>
+              <p className="text-sm text-light-secondary dark:text-dark-secondary">Game engines, frameworks, and design tools we use</p>
+            </div>
+
+            {/* Row 1 */}
+            <LogoLoop speed={24}>
+              <div className="logo-pill">
+                <img src="/gamecom.png" alt="GameCom" className="logo-img dark:hidden" />
+                <img src="/gcwhite.png" alt="GameCom" className="logo-img hidden dark:block" />
+                <span className="logo-label">GameCom</span>
+              </div>
+              <div className="logo-pill"><span className="logo-label">Unity</span></div>
+              <div className="logo-pill"><span className="logo-label">Unreal Engine</span></div>
+              <div className="logo-pill"><span className="logo-label">Godot</span></div>
+              <div className="logo-pill"><span className="logo-label">Blender</span></div>
+              <div className="logo-pill"><span className="logo-label">C#</span></div>
+              <div className="logo-pill"><span className="logo-label">C++</span></div>
+              <div className="logo-pill"><span className="logo-label">Python</span></div>
+              <div className="logo-pill"><img src="/vite.svg" alt="Vite" className="logo-img" /><span className="logo-label">Vite</span></div>
+              <div className="logo-pill"><img src="/src/assets/react.svg" alt="React" className="logo-img" /><span className="logo-label">React</span></div>
+              <div className="logo-pill"><span className="logo-label">Tailwind CSS</span></div>
+              <div className="logo-pill"><span className="logo-label">Three.js</span></div>
+              <div className="logo-pill"><span className="logo-label">TypeScript</span></div>
+            </LogoLoop>
+
+            {/* Row 2 (reverse) */}
+            <LogoLoop speed={28} direction="reverse">
+              <div className="logo-pill"><span className="logo-label">Node.js</span></div>
+              <div className="logo-pill"><span className="logo-label">Express</span></div>
+              <div className="logo-pill"><span className="logo-label">Git</span></div>
+              <div className="logo-pill"><span className="logo-label">GitHub</span></div>
+              <div className="logo-pill"><span className="logo-label">VS Code</span></div>
+              <div className="logo-pill"><span className="logo-label">Figma</span></div>
+              <div className="logo-pill"><span className="logo-label">Photoshop</span></div>
+              <div className="logo-pill"><span className="logo-label">Illustrator</span></div>
+              <div className="logo-pill"><span className="logo-label">After Effects</span></div>
+              <div className="logo-pill"><span className="logo-label">MongoDB</span></div>
+              <div className="logo-pill"><span className="logo-label">Prisma</span></div>
+              <div className="logo-pill"><span className="logo-label">Socket.IO</span></div>
+            </LogoLoop>
+          </div>
+
           {/* Enhanced Domain Navigation */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
             {domains.map((domain) => {
@@ -409,6 +456,7 @@ export default function DomainsPage() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

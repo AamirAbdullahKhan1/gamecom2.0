@@ -137,7 +137,7 @@ export default function DomainsSection({ scrollY }) {
         </div>
 
         {/* Magic Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-7 auto-rows-[180px] md:auto-rows-[180px] lg:auto-rows-[220px] mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-7 auto-rows-[260px] md:auto-rows-[180px] lg:auto-rows-[220px] mb-16">
           {domains.map((domain, index) => {
             const IconComponent = domain.icon
             const pixelRef = useRef(null)

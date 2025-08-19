@@ -139,22 +139,6 @@ export default function ContactSection({ scrollY }) {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-20 pt-12 border-t border-light dark:border-white/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">GC</span>
-            </div>
-            <span className="text-light-primary dark:text-dark-primary font-bold text-xl text-gradient-primary-light dark:text-gradient-primary-dark">
-              GameCom
-            </span>
-          </div>
-          <p className="text-light-secondary dark:text-dark-secondary mb-4">SRM University's Premier Gaming & Development Club</p>
-          <p className="text-light-muted dark:text-gray-500 text-sm">© 2024 GameCom. Made with ❤️ by the GameCom team.</p>
-        </div>
-      </footer>
     </section>
   )
 }

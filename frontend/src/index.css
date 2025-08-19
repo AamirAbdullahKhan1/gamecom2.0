@@ -371,3 +371,32 @@ html {
   background-size: 200% 200%;
   animation: gradient-flow-x 6s ease-in-out infinite alternate;
 }
+
+/* Logo loop animation inspired by ReactBits logo loop */
+@keyframes logo-scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logo-loop {
+}
+
+.logo-track {
+  width: 200%;
+  animation-name: logo-scroll-x;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.logo-pill {
+  @apply flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 shadow-sm; 
+}
+
+.logo-img {
+  height: 28px;
+  width: auto;
+}
+
+.logo-label {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-200;
+}

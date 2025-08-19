@@ -1,7 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import { Card } from "./ui/card"
 import { Button } from "./ui/button"
+import { CalendarDays, Clock3, Monitor, Palette, Gamepad2, Sparkles } from "lucide-react"
 
 export default function EventsSection({ scrollY }) {
   const upcomingEvents = [
@@ -36,24 +38,26 @@ export default function EventsSection({ scrollY }) {
       day: "Monday",
       content: "TechScope",
       description: "Dive into the latest technology trends and innovations",
-      icon: "💻",
+      icon: Monitor,
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       day: "Wednesday",
       content: "Glitch & Aesthetics",
       description: "Explore digital art, design trends, and visual creativity",
-      icon: "🎨",
+      icon: Palette,
       gradient: "from-pink-500 to-purple-500",
     },
     {
       day: "Friday",
       content: "Behind the Pixel",
       description: "Get insights into game development and behind-the-scenes content",
-      icon: "🎮",
+      icon: Gamepad2,
       gradient: "from-green-500 to-blue-500",
     },
   ]
+
+  const [sparkleIndex, setSparkleIndex] = useState(null)
 
   return (
     <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -96,11 +100,11 @@ export default function EventsSection({ scrollY }) {
 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center text-light-secondary dark:text-dark-secondary">
-                    <span className="w-4 h-4 mr-2">📅</span>
+                    <CalendarDays className="w-4 h-4 mr-2" />
                     <span>{event.date}</span>
                   </div>
                   <div className="flex items-center text-light-secondary dark:text-dark-secondary">
-                    <span className="w-4 h-4 mr-2">⏰</span>
+                    <Clock3 className="w-4 h-4 mr-2" />
                     <span>{event.time}</span>
                   </div>
                 </div>
@@ -122,29 +126,43 @@ export default function EventsSection({ scrollY }) {
         <div>
           <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-8 text-center">Weekly Content Schedule</h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {contentSchedule.map((item, index) => (
-              <Card
-                key={item.day}
-                className="group p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center"
-                style={{
-                  transform: `translateY(${scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)}px)`,
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                {/* Icon */}
-                <div
-                  className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+            {contentSchedule.map((item, index) => {
+              const IconComp = item.icon
+              return (
+                <Card
+                  key={item.day}
+                  className="group relative p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center"
+                  style={{
+                    transform: `translateY(${scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)}px)`,
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                  onDoubleClick={() => {
+                    setSparkleIndex(index)
+                    setTimeout(() => setSparkleIndex(null), 1500)
+                  }}
+                  title="Hint: double-click for a surprise"
                 >
-                  <span className="text-2xl">{item.icon}</span>
-                </div>
+                  {/* Icon */}
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <IconComp className="w-8 h-8 text-white" />
+                  </div>
 
-                <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-2">{item.day}</h4>
-                <h5 className="text-lg font-semibold text-gradient-primary-light dark:text-gradient-primary-dark mb-4">
-                  {item.content}
-                </h5>
-                <p className="text-light-secondary dark:text-dark-secondary leading-relaxed">{item.description}</p>
-              </Card>
-            ))}
+                  <h4 className="text-xl font-bold text-light-primary dark:text-dark-primary mb-2">{item.day}</h4>
+                  <h5 className="text-lg font-semibold text-gradient-primary-light dark:text-gradient-primary-dark mb-4">
+                    {item.content}
+                  </h5>
+                  <p className="text-light-secondary dark:text-dark-secondary leading-relaxed">{item.description}</p>
+
+                  {sparkleIndex === index && (
+                    <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+                      <Sparkles className="w-16 h-16 text-yellow-400 animate-pulse" />
+                    </div>
+                  )}
+                </Card>
+              )
+            })}
           </div>
         </div>
 

@@ -12,6 +12,7 @@ import GallerySection from "./components/GallerySection"
 import ContactSection from "./components/ContactSection"
 import DomainsPage from "./pages/DomainsPage"
 import { ThemeProvider } from "./components/ThemeProvider"
+import Footer from "./components/Footer"
 import "./index.css"
 
 function HomePage() {
@@ -95,6 +96,7 @@ function HomePage() {
         <EventsSection />
         <GallerySection />
         <ContactSection />
+        <Footer />
       </main>
     </div>
   )

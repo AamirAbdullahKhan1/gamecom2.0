@@ -16,6 +16,7 @@ export default function TeamCard({
   accent = "indigo", // indigo | pink | emerald | amber | purple | blue | rose
   size = "md", // sm | md | lg
   variant = "default", // default | core
+  imageOffsetY = 0, // number (percentage offset relative to center). e.g., -10 moves up, 10 moves down
 }) {
   const sizeMap = {
     sm: { h: "h-64", img: "w-24 h-24", name: "text-lg", role: "text-sm", subtitle: "text-xs" },
@@ -41,6 +42,17 @@ export default function TeamCard({
     accent === "pink" || accent === "rose" ? "pink" :
     "default"
   )
+
+  const resolvedObjectPositionY = (() => {
+    if (typeof imageOffsetY === "number" && Number.isFinite(imageOffsetY)) {
+      const y = Math.max(0, Math.min(100, 50 + imageOffsetY))
+      return `${y}%`
+    }
+    if (typeof imageOffsetY === "string" && imageOffsetY.trim().length > 0) {
+      return imageOffsetY
+    }
+    return "50%"
+  })()
 
   return (
     <motion.div
@@ -83,13 +95,18 @@ export default function TeamCard({
 
           {/* Avatar */}
           <div className={`rounded-2xl overflow-hidden shadow-lg ring-2 ring-white/10 group-hover:ring-white/30 transition-all ${sizeMap.img}`}>
-            <img src={photo} alt={name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <img
+              src={photo}
+              alt={name}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              style={{ objectPosition: `center ${resolvedObjectPositionY}` }}
+            />
           </div>
 
           {/* Text */}
           <div className="text-center mt-3">
             <div className={`${sizeMap.name} font-bold text-gray-900 dark:text-white`}>{name}</div>
-            {subtitle && <div className={`${sizeMap.subtitle} mt-1 text-gray-600 dark:text-gray-300`}>{subtitle}</div>}
+            {subtitle && <div className={`${sizeMap.subtitle} mt-1 text-gray-600 dark:text-white`}>{subtitle}</div>}
           </div>
 
           {/* Socials */}
@@ -98,8 +115,8 @@ export default function TeamCard({
               href={instagramUrl || undefined}
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => { if (!instagramUrl) e.preventDefault() }}
-              className={`p-2 rounded-lg bg-white/80 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 transition-colors shadow ${instagramUrl ? "" : "opacity-40 cursor-not-allowed"}`}
+              onClick={(e) => { if (!instagramUrl) e.preventDefault(); e.stopPropagation() }}
+              className={`p-2 rounded-lg bg-white dark:bg-white/10 hover:bg-white dark:hover:bg-white/80 transition-colors shadow ${instagramUrl ? "" : "opacity-40 cursor-not-allowed"}`}
             >
               <Instagram className="w-4 h-4 text-pink-500" />
             </a>
@@ -107,8 +124,8 @@ export default function TeamCard({
               href={linkedinUrl || undefined}
               target="_blank"
               rel="noreferrer"
-              onClick={(e) => { if (!linkedinUrl) e.preventDefault() }}
-              className={`p-2 rounded-lg bg-white/80 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 transition-colors shadow ${linkedinUrl ? "" : "opacity-40 cursor-not-allowed"}`}
+              onClick={(e) => { if (!linkedinUrl) e.preventDefault(); e.stopPropagation() }}
+              className={`p-2 rounded-lg bg-white dark:bg-white/10 hover:bg-white dark:hover:bg-white/80 transition-colors shadow ${linkedinUrl ? "" : "opacity-40 cursor-not-allowed"}`}
             >
               <Linkedin className="w-4 h-4 text-blue-600" />
             </a>

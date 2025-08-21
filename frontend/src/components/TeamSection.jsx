@@ -11,7 +11,8 @@ export default function TeamSection({ scrollY }) {
       role: "President",
       name: "Aamir Abdullah Khan",
       image: "https://live.staticflickr.com/65535/54644987566_28480da066_z.jpg",
-      linkedin: "https://linkedin.com/in/arjun-sharma-gamecom",
+      linkedin: "https://www.linkedin.com/in/aamir-abdullah-khan",
+      instagram: "https://www.instagram.com/_.aamir._.khan._/",
       gradient: "from-amber-400 via-yellow-500 to-orange-500",
       icon: Crown,
       description: "Leading GameCom's vision and strategic direction",
@@ -21,8 +22,10 @@ export default function TeamSection({ scrollY }) {
     {
       role: "Vice-President",
       name: "J Swethaa",
-      image: "/female-student-leader.png",
-      linkedin: "https://linkedin.com/in/priya-patel-gamecom",
+      image: "https://imgur.com/mpqlDzy.jpg",
+      imageOffsetY: -55,
+      linkedin: "https://www.linkedin.com/in/j-s-4819682b0/",
+      instagram: "https://www.instagram.com/j_swethaa/",
       gradient: "from-blue-500 via-purple-500 to-indigo-600",
       icon: Star,
       description: "Supporting leadership and driving innovation",
@@ -32,8 +35,10 @@ export default function TeamSection({ scrollY }) {
     {
       role: "Director",
       name: "Adityanshu Padhy",
-      image: "/professional-male-director.png",
-      linkedin: "https://linkedin.com/in/rahul-kumar-gamecom",
+      image: "https://imgur.com/b2h3VU4.jpg",
+      imageOffsetY: -55,
+      linkedin: "https://www.linkedin.com/in/adityanshu-padhy-672945293/",
+      instagram: "https://www.instagram.com/_.adityanshu._/",
       gradient: "from-emerald-500 via-teal-500 to-cyan-600",
       icon: Shield,
       description: "Overseeing operations and team coordination",
@@ -43,8 +48,10 @@ export default function TeamSection({ scrollY }) {
     {
       role: "Administrator",
       name: "Rajeev Suri Anand",
-      image: "/placeholder-0s4p1.png",
-      linkedin: "https://linkedin.com/in/sneha-reddy-gamecom",
+      image: "https://imgur.com/tCkd7Jw.jpg",
+      imageOffsetY: -5,
+      linkedin: "https://www.linkedin.com/in/rajeev-suri-anand-73b3a3296/",
+      instagram: "https://www.instagram.com/the_virus2204/",
       gradient: "from-rose-500 via-pink-500 to-purple-600",
       icon: Zap,
       description: "Managing resources and organizational excellence",
@@ -198,7 +205,7 @@ export default function TeamSection({ scrollY }) {
             <Crown className="w-6 h-6 text-amber-500" />
             <span className="text-sm font-semibold text-light-primary dark:text-dark-primary uppercase tracking-wider">Leadership</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gradient-primary-light dark:text-gradient-primary-dark animate-fade-in-up">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gradient-primary-light dark:text-gradient-primary-dark animate-fade-in-up leading-[1.08] pb-3">
             Our Majestic Team
           </h2>
           <p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto leading-relaxed">
@@ -221,10 +228,12 @@ export default function TeamSection({ scrollY }) {
                   name={member.name}
                   role={member.role}
                   subtitle={member.description}
-                  accent={index % 2 === 0 ? "amber" : "indigo"}
+                  accent={index <= 1 ? "amber" : "indigo"}
                   size="lg"
                   variant="core"
+                  imageOffsetY={member.imageOffsetY}
                   linkedinUrl={member.linkedin}
+                  instagramUrl={member.instagram}
                   onClick={() => window.open(member.linkedin, "_blank")}
                 />
               </div>
@@ -248,7 +257,9 @@ export default function TeamSection({ scrollY }) {
                   subtitle={`${member.domain} • ${member.expertise.slice(0,3).join(" • ")}`}
                   accent={"blue"}
                   size="md"
+                  imageOffsetY={member.imageOffsetY}
                   linkedinUrl={member.linkedin}
+                  instagramUrl={member.instagram}
                   onClick={() => window.open(member.linkedin, "_blank")}
                 />
               </div>

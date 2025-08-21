@@ -157,10 +157,12 @@
   /* Text gradients */
   .text-gradient-primary-light {
     @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-primary-dark {
     @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+    -webkit-text-fill-color: transparent;
   }
 
   /* Border colors */

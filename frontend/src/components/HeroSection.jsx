@@ -136,7 +136,7 @@ export default function HeroSection() {
         <div
           className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gradient-primary-light dark:text-gradient-primary-dark">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gradient-primary-light dark:text-gradient-primary-dark leading-[1.05] pb-2">
             <span className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-300 dark:to-blue-400 bg-clip-text text-transparent font-mono">
               {scrambledText}
             </span>
@@ -146,7 +146,7 @@ export default function HeroSection() {
         <div
           className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gradient-primary-light dark:text-gradient-primary-dark">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 text-gradient-primary-light dark:text-gradient-primary-dark leading-[1.15] pb-2">
             SRM University's Premier Gaming Hub
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mx-auto rounded-full mb-8"></div>

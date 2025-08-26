@@ -58,6 +58,19 @@ export default function TeamSection({ scrollY }) {
       special: true,
       achievements: ["Resource Manager", "Excellence Driver", "Organizational Expert"],
     },
+    {
+      role: "Creative Strategist",
+      name: "Pravin Kumar V",
+      image: "https://live.staticflickr.com/65535/54745051422_192f647649_z.jpg",
+      imageOffsetY: 35,
+      linkedin: "https://www.linkedin.com/in/pravin-kumar-v-0ab99a2b0",
+      instagram: "https://www.instagram.com/prxv._tf",
+      gradient: "from-rose-500 via-pink-500 to-purple-600",
+      icon: Zap,
+      description: "Shaping GameCom's creative direction, brand voice, and campaign strategy",
+      special: true,
+      achievements: ["Resource Manager", "Excellence Driver", "Organizational Expert"],
+    },
   ]
 
   const domainLeads = [
@@ -222,7 +235,11 @@ export default function TeamSection({ scrollY }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {coreTeam.map((member, index) => (
-              <div key={member.role} className="animate-fade-in-up" style={{ animationDelay: `${index * 120}ms` }}>
+              <div
+                key={member.role}
+                className={`${member.name === "Pravin Kumar V" ? "md:col-span-2 flex justify-center" : ""} animate-fade-in-up`}
+                style={{ animationDelay: `${index * 120}ms` }}
+              >
                 <TeamCard
                   photo={member.image}
                   name={member.name}

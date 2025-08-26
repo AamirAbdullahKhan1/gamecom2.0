@@ -125,7 +125,7 @@ export default function AboutSection({ scrollY }) {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">200+</div>
+                <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">40+</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Active Members</div>
               </Card>
               <Card className="group p-6 cursor-pointer bg-gradient-to-br from-green-500/30 to-blue-500/30 dark:from-green-500/20 dark:to-blue-500/20 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
@@ -139,7 +139,7 @@ export default function AboutSection({ scrollY }) {
                 <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Award className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">50+</div>
+                <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">5+</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Events Hosted</div>
               </Card>
             </div>

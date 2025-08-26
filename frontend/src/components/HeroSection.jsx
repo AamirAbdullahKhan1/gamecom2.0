@@ -55,9 +55,9 @@ export default function HeroSection() {
   }, [])
 
   const stats = [
-    { icon: Users, label: "Active Members", value: "200+" },
-    { icon: Trophy, label: "Events Hosted", value: "50+" },
-    { icon: Gamepad2, label: "Games Developed", value: "25+" },
+    { icon: Users, label: "Active Members", value: "40+" },
+    { icon: Trophy, label: "Events Hosted", value: "5+" },
+    { icon: Gamepad2, label: "Games Developed", value: "5+" },
   ]
 
   return (

@@ -89,7 +89,7 @@ export default function TeamCard({
           <div className="absolute top-4 right-4">
             <div className="relative">
               <div className={`absolute -inset-1 blur-md opacity-70 rounded-full bg-gradient-to-r ${accentGrad} group-hover:opacity-100 transition-opacity`} />
-              <span className={`relative px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${accentGrad} text-white shadow`}>{role}</span>
+              <span className={`relative px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r ${accentGrad} text-white shadow`} style={{ fontFamily: '"Orbitron", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial' }}>{role}</span>
             </div>
           </div>
 
@@ -105,7 +105,7 @@ export default function TeamCard({
 
           {/* Text */}
           <div className="text-center mt-3">
-            <div className={`${sizeMap.name} font-bold text-gray-900 dark:text-white`}>{name}</div>
+            <div className={`${sizeMap.name} font-bold tracking-wider uppercase text-gray-900 dark:text-white`} style={{ fontFamily: '"Orbitron", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial' }}>{name}</div>
             {subtitle && <div className={`${sizeMap.subtitle} mt-1 text-gray-600 dark:text-white`}>{subtitle}</div>}
           </div>
 

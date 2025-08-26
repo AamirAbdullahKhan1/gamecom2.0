@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Card } from "./ui/card"
 import { Button } from "./ui/button"
 import { CalendarDays, Clock3, Monitor, Palette, Gamepad2, Sparkles } from "lucide-react"
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 export default function EventsSection({ scrollY }) {
   const upcomingEvents = [
@@ -63,26 +65,25 @@ export default function EventsSection({ scrollY }) {
     <section id="events" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary-light dark:text-gradient-primary-dark">
             Events & Activities
           </h2>
           <p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto">
             Stay engaged with our regular events, workshops, and content that keeps the community thriving
           </p>
-        </div>
+        </motion.div>
 
         {/* Upcoming Events */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-8 text-center">Upcoming Events</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
+              <motion.div key={event.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.06 }}>
               <Card
-                key={event.title}
-                className="group p-6 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105"
+                className="group p-6 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:shadow-2xl"
                 style={{
                   transform: `translateY(${scrollY * 0.03 * (index % 2 === 0 ? 1 : -1)}px)`,
-                  animationDelay: `${index * 100}ms`,
                 }}
               >
                 {/* Event type badge */}
@@ -111,13 +112,19 @@ export default function EventsSection({ scrollY }) {
 
                 <p className="text-light-secondary dark:text-dark-secondary mb-6 leading-relaxed">{event.description}</p>
 
-                <Button
-                  variant="outline"
-                  className="w-full btn-outline-light dark:btn-outline-dark transition-all duration-300"
-                >
-                  Learn More
-                </Button>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    className="flex-1 btn-outline-light dark:btn-outline-dark transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    Learn More
+                  </Button>
+                  <Button className="flex-1 gradient-primary-light dark:gradient-primary-dark text-white transition-all duration-300 hover:scale-[1.02]">
+                    Remind Me
+                  </Button>
+                </div>
               </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -129,12 +136,11 @@ export default function EventsSection({ scrollY }) {
             {contentSchedule.map((item, index) => {
               const IconComp = item.icon
               return (
+                <motion.div key={item.day} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}>
                 <Card
-                  key={item.day}
-                  className="group relative p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 text-center"
+                  className="group relative p-8 card-light dark:card-dark hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-500 hover:shadow-2xl text-center"
                   style={{
                     transform: `translateY(${scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)}px)`,
-                    animationDelay: `${index * 100}ms`,
                   }}
                   onDoubleClick={() => {
                     setSparkleIndex(index)
@@ -160,7 +166,15 @@ export default function EventsSection({ scrollY }) {
                       <Sparkles className="w-16 h-16 text-yellow-400 animate-pulse" />
                     </div>
                   )}
+                  {item.content === "Glitch & Aesthetics" && (
+                    <div className="mt-6 flex justify-center">
+                      <Link to="/wallpapers" onClick={() => window.scrollTo(0,0)}>
+                        <Button className="gradient-primary-light dark:gradient-primary-dark text-white px-6">View Wallpapers</Button>
+                      </Link>
+                    </div>
+                  )}
                 </Card>
+                </motion.div>
               )
             })}
           </div>

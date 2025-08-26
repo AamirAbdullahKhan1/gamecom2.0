@@ -2,8 +2,23 @@
 
 import { Card } from "./ui/card"
 import { Users, Trophy, Code, Palette, Camera, Megaphone, Gamepad2, Star, Zap, Target, Award } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function AboutSection({ scrollY }) {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 18 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  }
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Enhanced background effects */}
@@ -54,23 +69,24 @@ export default function AboutSection({ scrollY }) {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-20">
+        <motion.div className="text-center mb-20" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={containerVariants}>
           <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 border-2 border-blue-500 rounded-full glass-light dark:glass-dark">
             <Star className="w-6 h-6 text-blue-500" />
             <span className="text-sm font-semibold text-light-primary dark:text-dark-primary uppercase tracking-wider">About Us</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gradient-primary-light dark:text-gradient-primary-dark animate-fade-in-up">
+          <motion.h2 className="text-5xl md:text-7xl font-bold mb-8 text-gradient-primary-light dark:text-gradient-primary-dark" variants={itemVariants}>
             About GameCom
-          </h2>
-          <p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p className="text-xl text-light-secondary dark:text-dark-secondary max-w-3xl mx-auto leading-relaxed" variants={itemVariants}>
             A student-driven community at SRM University, fostering innovation in game development and technical
             excellence through collaborative learning and hands-on experience.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="space-y-8" style={{ transform: `translateX(${scrollY * -0.1}px)` }}>
-            <Card className="group p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-xl card-tilt">
+          <motion.div className="space-y-8" style={{ transform: `translateX(${scrollY * -0.1}px)` }} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={containerVariants}>
+            <motion.div variants={itemVariants} whileHover={{ y: -6, scale: 1.02 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+              <Card className="group p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:shadow-xl card-tilt">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                   <Target className="w-6 h-6 text-white" />
@@ -82,9 +98,11 @@ export default function AboutSection({ scrollY }) {
                 technical skills, creative design, and community engagement. We believe in learning by doing and growing
                 together as a community of passionate innovators.
               </p>
-            </Card>
+              </Card>
+            </motion.div>
 
-            <Card className="group p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-xl card-tilt">
+            <motion.div variants={itemVariants} whileHover={{ y: -6, scale: 1.02 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+              <Card className="group p-8 card-light dark:card-dark hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 hover:shadow-xl card-tilt">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                   <Zap className="w-6 h-6 text-white" />
@@ -109,42 +127,52 @@ export default function AboutSection({ scrollY }) {
                   <span className="text-light-secondary dark:text-dark-secondary">Community events and competitions</span>
                 </div>
               </div>
-            </Card>
-          </div>
+              </Card>
+            </motion.div>
+          </motion.div>
 
-          <div className="space-y-8" style={{ transform: `translateX(${scrollY * 0.1}px)` }}>
+          <motion.div className="space-y-8" style={{ transform: `translateX(${scrollY * 0.1}px)` }} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={containerVariants}>
             <div className="grid grid-cols-2 gap-6">
-              <Card className="group p-6 cursor-pointer bg-gradient-to-br from-purple-500/50 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-xl border border-purple-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
+              <motion.div variants={itemVariants} whileHover={{ y: -4, scale: 1.03 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+                <Card className="group p-6 cursor-pointer bg-gradient-to-br from-purple-500/50 to-pink-300/30 dark:from-purple-500/20 dark:to-pink-500/20 backdrop-blur-xl border border-purple-200 dark:border-white/10 text-center transition-all duration-300 shadow-lg card-tilt">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Code className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">5</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Active Domains</div>
-              </Card>
-              <Card className="group p-6 cursor-pointer bg-gradient-to-br from-blue-500/30 to-purple-500/30 dark:from-blue-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-blue-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
+                </Card>
+              </motion.div>
+              <motion.div variants={itemVariants} whileHover={{ y: -4, scale: 1.03 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+                <Card className="group p-6 cursor-pointer bg-gradient-to-br from-blue-500/30 to-purple-500/30 dark:from-blue-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-blue-200 dark:border-white/10 text-center transition-all duration-300 shadow-lg card-tilt">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">40+</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Active Members</div>
-              </Card>
-              <Card className="group p-6 cursor-pointer bg-gradient-to-br from-green-500/30 to-blue-500/30 dark:from-green-500/20 dark:to-blue-500/20 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
+                </Card>
+              </motion.div>
+              <motion.div variants={itemVariants} whileHover={{ y: -4, scale: 1.03 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+                <Card className="group p-6 cursor-pointer bg-gradient-to-br from-green-500/30 to-blue-500/30 dark:from-green-500/20 dark:to-blue-500/20 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center transition-all duration-300 shadow-lg card-tilt">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Gamepad2 className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">Weekly</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Game Nights</div>
-              </Card>
-              <Card className="group p-6 cursor-pointer bg-gradient-to-br from-pink-500/30 to-purple-500/30 dark:from-pink-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-pink-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
+                </Card>
+              </motion.div>
+              <motion.div variants={itemVariants} whileHover={{ y: -4, scale: 1.03 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+                <Card className="group p-6 cursor-pointer bg-gradient-to-br from-pink-500/30 to-purple-500/30 dark:from-pink-500/20 dark:to-purple-500/20 backdrop-blur-xl border border-pink-200 dark:border-white/10 text-center transition-all duration-300 shadow-lg card-tilt">
                 <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Award className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-3xl font-bold text-light-primary dark:text-dark-primary mb-2">5+</div>
                 <div className="text-light-secondary dark:text-dark-secondary">Events Hosted</div>
-              </Card>
+                </Card>
+              </motion.div>
             </div>
 
-            <Card className="group p-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-xl border border-purple-200 dark:border-white/10 hover:scale-105 transition-all duration-300 shadow-lg card-tilt">
+            <motion.div variants={itemVariants} whileHover={{ y: -6, scale: 1.02 }} transition={{ type: "spring", stiffness: 260, damping: 20 }}>
+              <Card className="group p-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10 backdrop-blur-xl border border-purple-200 dark:border-white/10 transition-all duration-300 shadow-lg card-tilt">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                   <Trophy className="w-6 h-6 text-white" />
@@ -169,8 +197,9 @@ export default function AboutSection({ scrollY }) {
                   <span className="text-sm font-medium text-light-primary dark:text-dark-primary">Design</span>
                 </div>
               </div>
-            </Card>
-          </div>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

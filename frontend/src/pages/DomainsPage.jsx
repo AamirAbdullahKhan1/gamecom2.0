@@ -224,18 +224,23 @@ export default function DomainsPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Enhanced background with animated borders */}
-      <div className="fixed inset-0 opacity-5 dark:opacity-10">
+      {/* Enhanced background: stronger grid + theme-aware gradient blobs */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* Grid */}
         <div
-          className="w-full h-full"
+          className="absolute inset-0 opacity-20 dark:opacity-30"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(99, 102, 241, 0.18) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.18) 1px, transparent 1px)
             `,
-            backgroundSize: "50px 50px",
+            backgroundSize: "34px 34px",
           }}
-        ></div>
+        />
+        {/* Blobs */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-gradient-to-br from-blue-500/25 via-purple-500/20 to-pink-500/20 dark:from-blue-500/20 dark:via-purple-500/18 dark:to-pink-500/18 animate-pulse" />
+        <div className="absolute -bottom-32 -right-20 w-[34rem] h-[34rem] rounded-full blur-3xl bg-gradient-to-tr from-pink-500/25 via-purple-500/20 to-blue-500/20 dark:from-pink-500/18 dark:via-purple-500/16 dark:to-blue-500/16" style={{ animationDuration: "3s" }} />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full blur-2xl bg-gradient-to-br from-cyan-400/20 to-indigo-500/20" style={{ animationDuration: "5s" }} />
       </div>
 
       {/* Animated border elements */}
@@ -291,7 +296,6 @@ export default function DomainsPage() {
               <img alt="Tailwind CSS" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/240px-Tailwind_CSS_Logo.svg.png" />
               <img alt="Three.js" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Three.js_Icon.svg/240px-Three.js_Icon.svg.png" />
               <img alt="TypeScript" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/240px-Typescript_logo_2020.svg.png" />
-              <img alt="C Sharp" className="h-12 w-auto" loading="lazy" decoding="async" src="https://live.staticflickr.com/65535/54731379406_9f41d1de20_s.jpg" />
               <img alt="C++" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/240px-ISO_C%2B%2B_Logo.svg.png" />
               <img alt="Python" className="h-12 w-auto" loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/240px-Python-logo-notext.svg.png" />
             </LogoLoop>

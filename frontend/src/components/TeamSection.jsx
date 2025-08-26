@@ -296,9 +296,7 @@ export default function TeamSection({ scrollY }) {
               ranks and help shape the future of GameCom.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="gradient-primary-light dark:gradient-primary-dark hover:from-blue-600 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Apply for Leadership
-              </button>
+              
               <button className="btn-outline-light dark:btn-outline-dark px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
                 Become a Member
               </button>

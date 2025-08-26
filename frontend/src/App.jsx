@@ -11,6 +11,7 @@ import EventsSection from "./components/EventsSection"
 import GallerySection from "./components/GallerySection"
 import ContactSection from "./components/ContactSection"
 import DomainsPage from "./pages/DomainsPage"
+import WallpapersPage from "./pages/WallpapersPage"
 import { ThemeProvider } from "./components/ThemeProvider"
 import Footer from "./components/Footer"
 import "./index.css"
@@ -109,6 +110,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/domains" element={<DomainsPage />} />
+          <Route path="/wallpapers" element={<WallpapersPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

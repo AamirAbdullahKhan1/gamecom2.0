@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Card } from "./ui/card"
-import { Camera, Heart, Eye, Play, Star, Sparkles, Trophy, Award, Gamepad2 } from "lucide-react"
+import { Camera, Play, Star, Sparkles, Trophy, Award, Gamepad2 } from "lucide-react"
 
 export default function GallerySection({ scrollY }) {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -15,8 +15,6 @@ export default function GallerySection({ scrollY }) {
       title: "Friday Game Night",
       description: "Weekly gaming sessions bringing the community together",
       category: "Events",
-      likes: 156,
-      views: 1200,
       featured: true,
     },
     {
@@ -25,8 +23,6 @@ export default function GallerySection({ scrollY }) {
       title: "Game Dev Workshop",
       description: "Hands-on learning sessions for aspiring developers",
       category: "Workshops",
-      likes: 89,
-      views: 800,
       featured: false,
     },
     {
@@ -35,8 +31,6 @@ export default function GallerySection({ scrollY }) {
       title: "Team Collaboration",
       description: "Domain leads planning exciting new initiatives",
       category: "Team",
-      likes: 234,
-      views: 1500,
       featured: true,
     },
     {
@@ -45,8 +39,6 @@ export default function GallerySection({ scrollY }) {
       title: "Design Showcase",
       description: "Showcasing amazing creative work from our design domain",
       category: "Showcase",
-      likes: 178,
-      views: 1100,
       featured: false,
     },
     {
@@ -55,8 +47,6 @@ export default function GallerySection({ scrollY }) {
       title: "Tech Talk",
       description: "Technical domain sharing knowledge and innovations",
       category: "Tech",
-      likes: 145,
-      views: 950,
       featured: true,
     },
     {
@@ -65,8 +55,6 @@ export default function GallerySection({ scrollY }) {
       title: "Community Celebration",
       description: "Celebrating milestones and achievements together",
       category: "Community",
-      likes: 267,
-      views: 1800,
       featured: true,
     },
   ]
@@ -185,19 +173,7 @@ export default function GallerySection({ scrollY }) {
                     {image.title}
                     {image.featured && <Sparkles className="w-4 h-4 text-amber-400" />}
                   </h4>
-                  <p className="text-sm text-gray-200 drop-shadow-md mb-3">{image.description}</p>
-                  
-                  {/* Stats */}
-                  <div className="flex items-center gap-4 text-xs">
-                    <div className="flex items-center gap-1">
-                      <Heart className="w-3 h-3 text-red-400" />
-                      <span>{image.likes}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-3 h-3 text-blue-400" />
-                      <span>{image.views}</span>
-                    </div>
-                  </div>
+                  <p className="text-sm text-gray-200 drop-shadow-md">{image.description}</p>
                 </div>
               </div>
             </Card>
@@ -224,7 +200,7 @@ export default function GallerySection({ scrollY }) {
           
           <Card className="group p-8 bg-gradient-to-br from-green-500/20 to-blue-500/20 dark:from-green-500/10 dark:to-blue-500/10 backdrop-blur-xl border border-green-200 dark:border-white/10 text-center hover:scale-105 transition-all duration-300 hover:shadow-lg">
             <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-              <Heart className="w-6 h-6 text-white" />
+              <Star className="w-6 h-6 text-white" />
             </div>
             <div className="text-4xl font-bold text-light-primary dark:text-dark-primary mb-2">100+</div>
             <div className="text-light-secondary dark:text-dark-secondary font-medium">Memories Created</div>

@@ -260,7 +260,7 @@ export default function DomainsSection({ scrollY }) {
               lies! Start your journey with hands-on projects and expert mentorship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="gradient-primary-light dark:gradient-primary-dark hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-600 dark:hover:to-pink-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+              <Button variant="gradient" className="px-8 py-4 text-lg font-semibold rounded-xl">
                 Join a Domain
               </Button>
               <Link to={"/domains"} onClick={() => window.scrollTo(0,0)}>

@@ -186,7 +186,7 @@ export default function HeroSection() {
         <div
           className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 transition-all duration-1000 delay-1100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <Button className="gradient-primary-light dark:gradient-primary-dark hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 text-white px-10 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 group">
+          <Button variant="gradient" className="px-10 py-6 text-xl font-semibold rounded-2xl shadow-2xl hover:scale-105 group">
             <Users className="w-6 h-6 mr-3 group-hover:animate-pulse" />
             Join Our Community
           </Button>

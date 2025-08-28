@@ -9,6 +9,9 @@ const Button = React.forwardRef(({ className, variant = "default", size = "defau
     secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
     ghost: "hover:bg-accent hover:text-accent-foreground",
     link: "text-primary underline-offset-4 hover:underline",
+    // New elegant gradient variant, theme-aware
+    gradient:
+      "text-white shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-500 dark:via-indigo-500 dark:to-purple-500 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:via-indigo-600 dark:hover:to-purple-600",
   }
 
   const sizes = {
